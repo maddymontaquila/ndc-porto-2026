@@ -1,0 +1,157 @@
+/* Shared styles for the Techorama 2026 decks (Aspire design system, dark) */
+html, body, .reveal-viewport { background: #0f0d1d; }
+.reveal { font-family: 'Poppins', Arial, sans-serif; color: #f6f3ff; }
+.reveal .slides { text-align: left; }
+.reveal .slides > section { padding: 0; width: 1920px; height: 1080px; }
+.reveal .slide {
+  position: relative; width: 1920px; height: 1080px; overflow: hidden;
+  box-sizing: border-box; display: flex; flex-direction: column;
+  font-family: 'Poppins', Arial, sans-serif; color: #f6f3ff;
+  font-size: 32px; line-height: 1.4; text-align: left;
+}
+.reveal .slide *, .reveal .slide *::before, .reveal .slide *::after { box-sizing: border-box; }
+.reveal .slide h1, .reveal .slide h2, .reveal .slide h3, .reveal .slide p,
+.reveal .slide ul, .reveal .slide ol, .reveal .slide table {
+  margin: 0; color: inherit; font-family: inherit; text-transform: none; text-shadow: none; word-wrap: normal;
+}
+.reveal .slide h1 { font-size: 96px; font-weight: 600; line-height: 1.1; }
+.reveal .slide h2 { font-size: 64px; font-weight: 600; line-height: 1.15; }
+.reveal .slide h3 { font-size: 44px; font-weight: 600; line-height: 1.2; }
+.reveal .slide .aspire-definition {
+  width: 1600px;
+  font-size: 96px;
+  letter-spacing: -3px;
+  line-height: 1.35;
+}
+.reveal .slide .aspire-definition span {
+  padding: 0 4px 8px 0;
+  white-space: nowrap;
+  background: linear-gradient(90deg, #c3adff, #f08bff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.reveal .slide p { line-height: 1.4; }
+.reveal .slide ul { padding-left: 1.1em; list-style: disc; }
+.reveal .slide ul li::marker { color: #c3adff; }
+.reveal .slide a { color: inherit; text-decoration: none; }
+.reveal .slide a[data-preview-image] { cursor: zoom-in; }
+.reveal .slide a[data-preview-image]:focus-visible { outline: 4px solid #c3adff; outline-offset: 8px; }
+.reveal .slide img { margin: 0; max-width: none; max-height: none; border: 0; box-shadow: none; display: block; }
+.reveal .slide .ring { pointer-events: none; }
+.reveal .slide table { border-collapse: collapse; width: 100%; }
+.reveal .slide th, .reveal .slide td {
+  padding: 0.35em 0.6em; text-align: left; border-bottom: 1px solid rgba(195,173,255,0.22);
+  font-weight: inherit;
+}
+.reveal .slide th { font-weight: 600; }
+.reveal .progress { color: #7455dd; height: 4px; }
+
+.reveal .slide.techorama-opener,
+.reveal .slide.techorama-title { background-color: #1b1d1c; padding: 0; }
+.reveal .slide .techorama-opener-art { width: 1920px; height: 1080px; object-fit: cover; }
+.reveal .slide.techorama-title {
+  background-image: url('./img/techorama-background.png');
+  background-size: cover;
+  font-family: 'Alegreya', Georgia, serif;
+  font-weight: 500;
+}
+.reveal .slide .techorama-logo { position: absolute; left: 596px; top: 104px; width: 728px; height: 423px; object-fit: contain; }
+.reveal .slide .techorama-title-content {
+  position: absolute;
+  left: 192px;
+  top: 584px;
+  width: 1536px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+  color: #f3ebe2;
+}
+.reveal .slide .techorama-title-content h1 {
+  font-family: 'DS Wallau', Georgia, serif;
+  font-size: 88px;
+  font-weight: 400;
+  font-synthesis: none;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+.reveal .slide .techorama-subtitle { font-size: 40px; line-height: 1.3; color: #e1d3c4; }
+.reveal .slide .techorama-presenters { font-size: 32px; color: #e1d3c4; }
+.reveal .slide .techorama-session { font-size: 26px; color: #cbbdad; }
+
+.reveal .slide .speaker-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 128px;
+}
+.reveal .slide .speaker-profile { display: flex; flex-direction: column; gap: 24px; }
+.reveal .slide .speaker-portrait { width: 280px; height: 280px; object-fit: cover; border-radius: 32px; }
+.reveal .slide .speaker-bio { display: flex; flex-direction: column; gap: 12px; }
+.reveal .slide .speaker-bio h3 { font-size: 48px; font-weight: 600; line-height: 1.2; }
+.reveal .slide .speaker-bio p { font-size: 30px; line-height: 1.4; color: #cdc7e8; }
+.reveal .slide .speaker-bio .speaker-handle {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 28px;
+  color: #c3adff;
+}
+
+.reveal .slide.closing-slide { padding: 208px 128px 128px; justify-content: center; }
+.reveal .slide .closing-layout {
+  display: grid;
+  grid-template-columns: 880px 720px;
+  gap: 64px;
+  align-items: center;
+}
+.reveal .slide .closing-content { display: flex; flex-direction: column; gap: 40px; }
+.reveal .slide .closing-content h1 { font-size: 144px; letter-spacing: -5px; line-height: 1; }
+.reveal .slide .closing-tagline { font-size: 36px; line-height: 1.4; color: #cdc7e8; }
+.reveal .slide .closing-contacts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; }
+.reveal .slide .closing-contact { display: flex; flex-direction: column; gap: 6px; }
+.reveal .slide .closing-contact-label {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c3adff;
+}
+.reveal .slide .closing-contact-value { font-size: 32px; font-weight: 500; }
+.reveal .slide .closing-review-prompt { font-size: 28px; color: #cdc7e8; }
+.reveal .slide .closing-review-qr { width: 720px; height: 720px; object-fit: contain; }
+
+.reveal .slide .audience-blanks {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(4, auto);
+  gap: 32px 96px;
+  padding-left: 48px;
+  font-size: 32px;
+}
+.reveal .slide .audience-blanks li { padding-left: 12px; }
+.reveal .slide .audience-blanks li::marker { color: #c3adff; font-weight: 600; }
+.reveal .slide .audience-blank-line {
+  display: block;
+  height: 32px;
+  border-bottom: 2px solid rgba(195,173,255,0.5);
+}
+.reveal .slide .mad-lib-slot { color: #c3adff; font-weight: 600; }
+
+.reveal .apphost-code .fragment.code-step {
+  clip-path: inset(0);
+  border-radius: 6px;
+  transition:
+    clip-path 380ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 180ms ease-out,
+    background-color 180ms ease-out;
+}
+.reveal.ready .apphost-code .fragment.code-step:not(.visible) { clip-path: inset(0 100% 0 0); }
+.reveal .apphost-code .fragment.code-step.current-fragment { background-color: rgba(195,173,255,0.12); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .slides section,
+  .reveal .slides .fragment,
+  .reveal .backgrounds .slide-background {
+    transition: none !important;
+  }
+}

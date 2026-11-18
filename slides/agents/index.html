@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Use agents to build agents</title>
+<link rel="icon" type="image/svg+xml" href="../shared/img/aspire-favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="../shared/img/aspire-favicon.png">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section data-transition="fade">
+<div class="slide techorama-opener">
+<img class="techorama-opener-art" src="../shared/img/techorama-opener.png" alt="Hear ye, hear ye. Techorama Medieval Edition.">
+</div>
+<aside class="notes">Conference opener. Leave this up while the audience arrives, then advance to the session title.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide techorama-title">
+<img class="techorama-logo" src="../shared/img/techorama-logo.png" alt="Techorama 2026 Medieval Edition">
+<div class="techorama-title-content">
+<h1>Use agents to build agents</h1>
+<p class="techorama-subtitle">with Aspire + Microsoft Agent Framework</p>
+<p class="techorama-presenters">Maddy Montaquila · Tommaso Stocchi</p>
+<p class="techorama-session">Room 12 · Wed 28 Oct 2026</p>
+</div>
+</div>
+<aside class="notes">Techorama 2026 · Room 12 · Wed 28 Oct. Welcome! This one is the deeper, agent-focused follow-up to yesterday’s Aspireify session. Two halves: Use AI — letting a coding agent build and debug with Aspire giving it eyes. Build AI — an agentic app with Microsoft Agent Framework, orchestrated by Aspire. Explain the AppHost before the Agent Framework demo, then finish with resources and Q&amp;A; there is no separate deployment section.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;gap:48px"><img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Who we are</h2>
+<div class="speaker-grid">
+<div class="speaker-profile">
+<img class="speaker-portrait" src="../shared/img/maddy.png" alt="Maddy Montaquila">
+<div class="speaker-bio">
+<h3>Maddy Montaquila</h3>
+<p>Principal PM, Aspire<br>@ Microsoft</p>
+<p class="speaker-handle">@maddymontaquila</p>
+</div>
+</div>
+<div class="speaker-profile">
+<img class="speaker-portrait" src="../shared/img/tommaso.png" alt="Tommaso Stocchi">
+<div class="speaker-bio">
+<h3>Tommaso Stocchi</h3>
+<p>Cloud Solution Architect,<br>Microsoft</p>
+<p class="speaker-handle">@tommasodotNET</p>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">Quick intros. If anyone was at yesterday’s Aspireify session, welcome back — today we skip most of the Aspire basics and go straight to agents.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:#0f0d1d;color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;justify-content:center;gap:48px"><div class="ring" style="position:absolute;left:1240px;top:-180px;width:900px;height:900px;background:transparent;border:1px solid rgba(195,173,255,0.22);border-radius:50%"></div>
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h1 style="font-size:104px;font-weight:600;letter-spacing:-3px;line-height:1.08;width:1500px">Agents are in your app now. And in your dev loop.</h1>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:40px;line-height:1.4;color:#cdc7e8;width:1500px">You’re asked to ship agents — while coding agents write more of your code.</p>
+<p style="font-size:40px;line-height:1.4;color:#c3adff;width:1500px">Both need an app that’s easy to run, see, and deploy.</p>
+</div>
+</div>
+<aside class="notes">Hands up: who has been asked to “add an agent” to something this year? Now keep them up if a coding agent wrote some of your code this week. That’s the two sides of today. The tooling keeps changing under us — models, frameworks, MCP servers — and getting it running locally is one challenge, getting it deployed is another. Whether the agent is in your product or in your editor, it needs the same thing: an app it can run, see and ship.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;gap:64px"><img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Three ways AI shows up in your work</h2>
+<div style="display:flex;gap:32px;flex:1">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:32px;padding:48px 44px">
+<p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#9c97b8">Demo 1</p>
+<h3 style="font-size:64px;font-weight:600;letter-spacing:-2px;line-height:1.1;color:#c3adff">Use AI</h3>
+<p style="font-size:30px;line-height:1.5;color:#cdc7e8">Coding agents that help you do your job faster and better.</p>
+</div>
+<div class="fragment" data-fragment-index="0" style="flex:1;display:flex;flex-direction:column;gap:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:32px;padding:48px 44px">
+<p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#9c97b8">Demo 2</p>
+<h3 style="font-size:64px;font-weight:600;letter-spacing:-2px;line-height:1.1;color:#c3adff">Build AI</h3>
+<p style="font-size:30px;line-height:1.5;color:#cdc7e8">Agents and AI-powered experiences inside the apps you ship.</p>
+</div>
+<div class="fragment" data-fragment-index="1" style="flex:1;display:flex;flex-direction:column;gap:20px;background:#512bd4;border:1px solid #7455dd;border-radius:32px;padding:48px 44px">
+<p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#dcd5f6">The glue</p>
+<h3 style="font-size:64px;font-weight:600;letter-spacing:-2px;line-height:1.1;color:#ffffff">Build <i>for</i> AI</h3>
+<p style="font-size:30px;line-height:1.5;color:#f6f3ff">The inner loop is now agentic. Dev tools need to meet us there.</p>
+</div>
+</div>
+</div>
+<aside class="notes">The frame for the whole talk. Use AI: the coding agent in your editor. Build AI: the agent your customers talk to. Build for AI is the bit people miss — your tools and your app need to be legible to agents. That’s where Aspire accidentally turned out to fit perfectly. Demo 1 is Use AI, demo 2 is Build AI, and Aspire is the thread through both.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:#0f0d1d;color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;justify-content:center;gap:48px"><div class="ring" style="position:absolute;left:1240px;top:-180px;width:900px;height:900px;background:transparent;border:1px solid rgba(195,173,255,0.22);border-radius:50%"></div>
+<div class="ring" style="position:absolute;left:1420px;top:0px;width:560px;height:560px;background:transparent;border:1px solid rgba(195,173,255,0.22);border-radius:50%"></div>
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#c3adff">What is Aspire?</p>
+<h1 class="aspire-definition">Aspire is an <span>agent-ready,</span> <span>code-first</span> tool to <span>compose,</span> <span>debug,</span> and <span>deploy</span> any distributed app.</h1>
+<p style="font-size:36px;line-height:1.5;color:#cdc7e8;width:1400px">Including the agentic ones.</p>
+</div>
+<aside class="notes">Short version for this crowd: one AppHost that describes the whole app in code, 100+ integrations including AI models and vector stores, an OpenTelemetry dashboard, and a CLI built for coding agents. Run everything locally with one command; the same model drives deployment. If people want the deep dive, point them to yesterday’s Aspireify session recording.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="display:flex; flex-direction:column; gap:64px; padding:208px 128px 128px; background:linear-gradient(160deg, #171b31 0%, #1b2140 55%, #213051 100%)"><img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute; top:80px; left:128px; width:226px; height:56px; object-fit:contain">
+  <h2 style="font-family:Poppins, Arial, sans-serif; font-size:72px; font-weight:600; line-height:1.08; letter-spacing:-2px; color:#f6f3ff">What makes up Aspire?</h2>
+  <div style="display:flex; flex-direction:row; gap:32px; flex:1">
+    <div style="display:flex; flex-direction:column; gap:20px; flex:1; padding:44px 40px; background:#ffffff0a; border:1px solid #c3adff38; border-radius:32px">
+      <div style="width:80px; height:80px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#c3adff1f; border-radius:20px">
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;width:44px; height:44px; color:#c3adff"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+      </div>
+      <h3 style="font-family:Poppins, Arial, sans-serif; font-size:40px; font-weight:600; line-height:1.2; color:#f6f3ff">AppHost</h3>
+      <p style="font-family:Poppins, Arial, sans-serif; font-size:28px; line-height:1.5; color:#cdc7e8">The code-first map of your app: every service and how they connect. C# or TypeScript.</p>
+    </div>
+    <div class="fragment" data-fragment-index="0" style="display:flex; flex-direction:column; gap:20px; flex:1; padding:44px 40px; background:#ffffff0a; border:1px solid #c3adff38; border-radius:32px">
+      <div style="width:80px; height:80px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#c3adff1f; border-radius:20px">
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;width:44px; height:44px; color:#c3adff"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></svg>
+      </div>
+      <h3 style="font-family:Poppins, Arial, sans-serif; font-size:40px; font-weight:600; line-height:1.2; color:#f6f3ff">Integrations</h3>
+      <p style="font-family:Poppins, Arial, sans-serif; font-size:28px; line-height:1.5; color:#cdc7e8">100+ packages for databases, caches, queues, AI and clouds. Opinionated by default.</p>
+    </div>
+    <div class="fragment" data-fragment-index="1" style="display:flex; flex-direction:column; gap:20px; flex:1; padding:44px 40px; background:#ffffff0a; border:1px solid #c3adff38; border-radius:32px">
+      <div style="width:80px; height:80px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#c3adff1f; border-radius:20px">
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;width:44px; height:44px; color:#c3adff"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg>
+      </div>
+      <h3 style="font-family:Poppins, Arial, sans-serif; font-size:40px; font-weight:600; line-height:1.2; color:#f6f3ff">Dashboard</h3>
+      <p style="font-family:Poppins, Arial, sans-serif; font-size:28px; line-height:1.5; color:#cdc7e8">Logs, traces, metrics and resources in one place — plus an MCP server for agents.</p>
+    </div>
+    <div class="fragment" data-fragment-index="2" style="display:flex; flex-direction:column; gap:20px; flex:1; padding:44px 40px; background:#ffffff0a; border:1px solid #c3adff38; border-radius:32px">
+      <div style="width:80px; height:80px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#c3adff1f; border-radius:20px">
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;width:44px; height:44px; color:#c3adff"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg>
+      </div>
+      <h3 style="font-family:Poppins, Arial, sans-serif; font-size:40px; font-weight:600; line-height:1.2; color:#f6f3ff">CLI</h3>
+      <p style="font-family:Poppins, Arial, sans-serif; font-size:28px; line-height:1.5; color:#cdc7e8">One agent-ready control plane to create, run and deploy the whole thing.</p>
+    </div>
+  </div>
+</div>
+<aside class="notes">Don’t teach these in depth — the demo does that. Just name them so people recognize them on screen: AppHost is the map, integrations are the building blocks, the dashboard is where you see it all, and the CLI drives it (and gives your coding agent context).</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:#0f0d1d;color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;justify-content:flex-end;gap:24px"><div class="ring" style="position:absolute;left:1100px;top:-200px;width:960px;height:960px;background:transparent;border:1px solid rgba(195,173,255,0.28);border-radius:50%"></div>
+<div class="ring" style="position:absolute;left:1300px;top:0px;width:560px;height:560px;background:transparent;border:1px solid rgba(195,173,255,0.28);border-radius:50%"></div>
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<p style="font-family:'Fira Code', 'Courier New', monospace;font-size:32px;font-weight:600;color:#c3adff">Part 1 · Use AI</p>
+<h1 style="font-size:120px;font-weight:600;letter-spacing:-4px;line-height:1.05;width:1400px">Using coding agents with Aspire</h1>
+<p style="font-size:32px;line-height:1.5;color:#cdc7e8;width:1200px">Give your coding agent the app model, workflow and visibility.</p>
+</div>
+<aside class="notes">Start the Use AI half. First, the coding agent helping you build the app: how we use agents on Aspire, the inner loop, and the skills and visibility that make that loop reliable. Then show it working in demo 1. Part 2 switches to the agents inside the app you ship.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;gap:40px"><img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<div style="display:flex;flex-direction:column;gap:16px">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">AI is how we build and ship Aspire</h2>
+</div>
+<div style="background:#0d0c1a;border:1px solid rgba(195,173,255,0.18);border-radius:16px;overflow:hidden">
+<div style="display:flex;align-items:center;gap:12px;padding:16px 32px;border-bottom:1px solid rgba(195,173,255,0.12);font-family:'Fira Code', 'Courier New', monospace;font-size:22px;color:#8a84ad">
+<svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;width:26px;height:26px"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+<a href="https://github.com/microsoft">github.com/microsoft</a>
+</div>
+<div style="padding:20px 40px 24px;font-family:'Fira Code', 'Courier New', monospace;font-size:26px;line-height:1.6;white-space:nowrap">
+<p><a href="https://github.com/microsoft/aspire/tree/main/.agents/skills"><span style="color:#8a84ad">aspire/</span><span style="color:#c3adff">.agents/skills/</span></a></p>
+<div style="display:grid;grid-template-columns:600px 1fr;align-items:baseline;"><p><span style="color:#5f5a80;white-space:pre">├── </span><a href="https://github.com/microsoft/aspire/blob/main/.agents/skills/issue-investigation/SKILL.md" style="color:#f6f3ff">issue-investigation/</a></p><p style="color:#8a84ad"># reproduce the bug, draft the findings</p></div>
+<div style="display:grid;grid-template-columns:600px 1fr;align-items:baseline;"><p><span style="color:#5f5a80;white-space:pre">├── </span><a href="https://github.com/microsoft/aspire/blob/main/.agents/skills/pr-testing/SKILL.md" style="color:#f6f3ff">pr-testing/</a></p><p style="color:#8a84ad"># test the actual PR build, not main</p></div>
+<div style="display:grid;grid-template-columns:600px 1fr;align-items:baseline;"><p><span style="color:#5f5a80;white-space:pre">└── </span><a href="https://github.com/microsoft/aspire/blob/main/.agents/skills/backport-pr/SKILL.md" style="color:#f6f3ff">backport-pr/</a></p><p style="color:#8a84ad"># prep the backport for shiproom</p></div>
+<p><a href="https://github.com/microsoft/aspire/tree/main/.github/workflows"><span style="color:#8a84ad">aspire/</span><span style="color:#c3adff">.github/workflows/</span></a></p>
+<div style="display:grid;grid-template-columns:600px 1fr;align-items:baseline;"><p><span style="color:#5f5a80;white-space:pre">├── </span><a href="https://github.com/microsoft/aspire/blob/main/.github/workflows/analyze-ci-failure.md" style="color:#f6f3ff">analyze-ci-failure.md</a></p><p style="color:#8a84ad"># flaky, infra, or a real regression?</p></div>
+<div style="display:grid;grid-template-columns:600px 1fr;align-items:baseline;background:rgba(195,173,255,0.12);margin:0 -40px;padding:0 40px;"><p><span style="color:#5f5a80;white-space:pre">├── </span><a href="https://github.com/microsoft/aspire/blob/main/.github/workflows/pr-docs-check.md" style="color:#c3adff">pr-docs-check.md</a></p><p style="color:#cdc7e8"># opens a draft docs PR on aspire.dev</p></div>
+<div style="display:grid;grid-template-columns:600px 1fr;align-items:baseline;"><p><span style="color:#5f5a80;white-space:pre">└── </span><a href="https://github.com/microsoft/aspire/blob/main/.github/workflows/release-notes-generate.md" style="color:#f6f3ff">release-notes-generate.md</a></p><p style="color:#8a84ad"># draft notes from the tag diff</p></div>
+<p><a href="https://github.com/microsoft/aspire.dev/tree/main/.agents/skills"><span style="color:#8a84ad">aspire.dev/</span><span style="color:#c3adff">.agents/skills/</span></a></p>
+<div style="display:grid;grid-template-columns:600px 1fr;align-items:baseline;"><p><span style="color:#5f5a80;white-space:pre">└── </span><a href="https://github.com/microsoft/aspire.dev/tree/main/.agents/skills/doc-writer" style="color:#f6f3ff">doc-writer/</a></p><p style="color:#8a84ad"># write it the way our docs are written</p></div>
+</div>
+</div>
+</div>
+<aside class="notes">Keep this to about a minute. Everyone on the Aspire team uses AI every day, across the development loop and through releases and release notes: this is the presenters’ firsthand account, not an inference from PR attribution or a claim that every line is AI-written. The links show concrete public examples, verified on 28 Oct 2026. issue-investigation gathers environment and issue context, reproduces behavior and drafts evidence-backed findings for approval. pr-testing tests the actual PR artifacts, including dogfood builds, rather than a nearby stable version. analyze-ci-failure uses Copilot to distinguish flaky or infrastructure failures from PR regressions and main breaks; the linked Actions run completed successfully. backport-pr coordinates the backport bot and prepares customer impact, testing, risk and regression details for shiproom review; it does not replace release approval. release-notes-generate is dispatched by the release pipeline to draft notes from the tag diff and related PRs while the release is still a draft, using permission-controlled safe outputs; the linked successful run is https://github.com/microsoft/aspire/actions/runs/40062970476. A completed analyze-ci-failure run: https://github.com/microsoft/aspire/actions/runs/40632491142. Every name on the slide is a link if you want to click through live. pr-docs-check runs whenever a PR merges into main or a release branch in microsoft/aspire: it decides whether the change is user-facing, and if so opens a draft PR on microsoft/aspire.dev written with the doc-writer skill, targeting the matching release branch, then comments back on the original PR with the link or a “no docs needed” note. A human still reviews and merges that docs PR. These are examples of how we work, not an exhaustive list or a claim that every workflow is autonomous. The next slide shows how Aspire gives the coding agent control and visibility in the inner loop.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;gap:64px"><img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<div style="display:flex;flex-direction:column;gap:12px">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">The agent inner loop with Aspire</h2>
+<p style="font-size:36px;line-height:1.4;color:#c3adff">From guessing to observing</p>
+</div>
+<div style="display:flex;align-items:center;gap:16px;height:420px">
+<div style="width:269px;height:420px;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:28px;padding:32px">
+<div style="width:56px;height:56px;border-radius:50%;background:rgba(195,173,255,0.16);display:flex;align-items:center;justify-content:center"><p style="font-size:26px;font-weight:600;color:#c3adff">1</p></div>
+<h3 style="font-size:32px;font-weight:600;line-height:1.2;color:#c3adff">Read the AppHost</h3>
+<p style="font-size:24px;line-height:1.45;color:#cdc7e8">Understand the topology: services, resources, references</p>
+</div>
+<svg class="fragment" data-fragment-index="0" aria-hidden="true" viewBox="0 0 48 24" style="flex:none;width:48px;height:24px"><path d="M0 7.2H28.8V0L48 12 28.8 24V16.8H0z" fill="#7455dd"/></svg>
+<div class="fragment" data-fragment-index="0" style="width:269px;height:420px;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:28px;padding:32px">
+<div style="width:56px;height:56px;border-radius:50%;background:rgba(195,173,255,0.16);display:flex;align-items:center;justify-content:center"><p style="font-size:26px;font-weight:600;color:#c3adff">2</p></div>
+<h3 style="font-size:32px;font-weight:600;line-height:1.2;color:#c3adff">Change code</h3>
+<p style="font-size:24px;line-height:1.45;color:#cdc7e8">Edit code or add a resource or integration</p>
+</div>
+<svg class="fragment" data-fragment-index="1" aria-hidden="true" viewBox="0 0 48 24" style="flex:none;width:48px;height:24px"><path d="M0 7.2H28.8V0L48 12 28.8 24V16.8H0z" fill="#7455dd"/></svg>
+<div class="fragment" data-fragment-index="1" style="width:269px;height:420px;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:28px;padding:32px">
+<div style="width:56px;height:56px;border-radius:50%;background:rgba(195,173,255,0.16);display:flex;align-items:center;justify-content:center"><p style="font-size:26px;font-weight:600;color:#c3adff">3</p></div>
+<h3 style="font-family:'Fira Code', 'Courier New', monospace;font-size:28px;font-weight:600;line-height:1.2;color:#c3adff;white-space:nowrap">aspire start</h3>
+<p style="font-size:24px;line-height:1.45;color:#cdc7e8">Run and track the full stack with one command</p>
+</div>
+<svg class="fragment" data-fragment-index="2" aria-hidden="true" viewBox="0 0 48 24" style="flex:none;width:48px;height:24px"><path d="M0 7.2H28.8V0L48 12 28.8 24V16.8H0z" fill="#7455dd"/></svg>
+<div class="fragment" data-fragment-index="2" style="width:269px;height:420px;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:28px;padding:32px">
+<div style="width:56px;height:56px;border-radius:50%;background:rgba(195,173,255,0.16);display:flex;align-items:center;justify-content:center"><p style="font-size:26px;font-weight:600;color:#c3adff">4</p></div>
+<h3 style="font-size:32px;font-weight:600;line-height:1.2;color:#c3adff">Operate</h3>
+<p style="font-size:24px;line-height:1.45;color:#cdc7e8">Test user flows and run custom commands</p>
+</div>
+<svg class="fragment" data-fragment-index="3" aria-hidden="true" viewBox="0 0 48 24" style="flex:none;width:48px;height:24px"><path d="M0 7.2H28.8V0L48 12 28.8 24V16.8H0z" fill="#7455dd"/></svg>
+<div class="fragment" data-fragment-index="3" style="width:269px;height:420px;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:28px;padding:32px">
+<div style="width:56px;height:56px;border-radius:50%;background:rgba(195,173,255,0.16);display:flex;align-items:center;justify-content:center"><p style="font-size:26px;font-weight:600;color:#c3adff">5</p></div>
+<h3 style="font-size:32px;font-weight:600;line-height:1.2;color:#c3adff">Inspect + verify</h3>
+<p style="font-size:24px;line-height:1.45;color:#cdc7e8">Check logs, traces and health; MCPs for resources and interactions</p>
+</div>
+</div>
+<svg class="fragment" data-fragment-index="4" aria-hidden="true" viewBox="0 0 1920 1080" style="position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none"><polyline points="1658,836 1658,884 611,884" fill="none" stroke="#7455dd" stroke-width="3" stroke-linejoin="round"/></svg>
+<svg class="fragment" data-fragment-index="4" aria-hidden="true" viewBox="0 0 1920 1080" style="position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none"><defs><marker id="m41442" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5 0 10z" fill="#7455dd"/></marker></defs><polyline points="611,884 611,842" fill="none" stroke="#7455dd" stroke-width="3" stroke-linejoin="round" marker-end="url(#m41442)"/></svg>
+<p class="fragment" data-fragment-index="4" style="position:absolute;left:660px;top:896px;width:960px;font-size:24px;color:#c3adff;text-align:center">Back to step 2 — repeat until the behavior is verified</p>
+</div>
+<aside class="notes">Tommaso’s slide. Read the AppHost to learn the topology, change code, then run everything with aspire start. Operate means exercising user flows and running Aspire custom commands; mention Playwright MCP as an example of driving the app in a browser. Inspect + verify closes the feedback loop: check logs, traces and resource health from the CLI, and use resource or interaction MCPs to inspect the results. Browser checks and telemetry complement each other. Loop back to step 2 until the intended behavior is verified, not just until the stack is healthy.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;gap:48px"><img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Give your coding agent “eyes”</h2>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:center;gap:32px;background:rgba(195,173,255,0.08);border:1px solid rgba(195,173,255,0.22);border-radius:24px;padding:32px 40px">
+<svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:56px;height:56px"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:44px;font-weight:600;line-height:1.2">Skills and the Aspire CLI</p>
+<p style="font-size:30px;line-height:1.4;color:#cdc7e8">Built for coding agents. Set up with <span style="font-family:'Fira Code', 'Courier New', monospace;color:#c3adff">aspire agent init</span>.</p>
+</div>
+</div>
+<div style="margin-left:68px;border-left:2px solid rgba(195,173,255,0.35);padding-left:48px">
+<div style="display:flex;align-items:center;gap:32px;padding:26px 0;border-bottom:1px solid rgba(195,173,255,0.14);"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:40px;height:40px"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg><p style="font-size:32px;line-height:1.4;flex:1"><b>Everything in the dashboard</b><span style="color:#cdc7e8;margin-left:20px">the agent sees what you see, from the CLI</span></p></div>
+<div style="display:flex;align-items:center;gap:32px;padding:26px 0;border-bottom:1px solid rgba(195,173,255,0.14);"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:40px;height:40px"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg><p style="font-size:32px;line-height:1.4;flex:1"><b>Filtered logs, metrics and traces</b><span style="color:#cdc7e8;margin-left:20px">small enough to fit in context</span></p></div>
+<div style="display:flex;align-items:center;gap:32px;padding:26px 0;"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:40px;height:40px"><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg><p style="font-size:32px;line-height:1.4;flex:1"><b><span style="font-family:'Fira Code', 'Courier New', monospace;color:#c3adff">aspire docs</span></b><span style="color:#cdc7e8;margin-left:20px">the highest-confidence docs articles for the task</span></p></div>
+</div>
+</div>
+</div>
+<aside class="notes">Coding agents don’t have eyes. Normally they guess from screenshots and logs you paste in. With Aspire, the agent can ask the CLI for the same resources, logs and traces you see in the dashboard — filtered and token-efficient. aspire agent init sets up skills and MCP so it knows how to use all of this out of the box.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:#0f0d1d;color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;gap:48px"><img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Anatomy of a skill</h2>
+<div style="display:grid;grid-template-columns:1000px 632px;gap:32px">
+<div style="display:flex;flex-direction:column;background:#221f3a;border:1px solid rgba(195,173,255,0.22);border-radius:32px;overflow:hidden;font-family:'Fira Code', 'Courier New', monospace">
+<div style="display:flex;align-items:center;gap:24px;padding:20px 32px;border-bottom:1px solid rgba(195,173,255,0.22)">
+<p style="font-size:24px;color:#f6f3ff">SKILL.md</p>
+<div style="flex:1"></div>
+<p style="font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#9c97b8">Illustrative example</p>
+</div>
+<div style="display:flex;flex-direction:column;padding:32px;font-size:24px;line-height:1.5;white-space:pre">
+<p style="color:#9c97b8">---</p>
+<p style="color:#cdc7e8"><span style="color:#f08bff">name:</span> aspire-orchestration</p>
+<p style="color:#f08bff">description: &gt;-</p>
+<p style="color:#cdc7e8">  Use when starting, stopping, or checking</p>
+<p style="color:#cdc7e8">  an Aspire app.</p>
+<p style="color:#9c97b8">---</p>
+<p style="color:#f6f3ff"><b># Run and verify</b></p>
+<p style="color:#cdc7e8">- Start with <span style="color:#7fd8ff">`aspire start`</span>.</p>
+<p style="color:#cdc7e8">- Check resource health before testing.</p>
+<p style="color:#cdc7e8">- Inspect logs and traces with the CLI.</p>
+<p style="color:#c3adff">- Stop and report failures; do not guess.</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;justify-content:space-between;padding:24px 0">
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:36px;color:#f08bff">Discovery metadata</h3>
+<p style="font-size:28px;line-height:1.45;color:#cdc7e8">The name and description tell the agent when this skill is relevant.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:36px;color:#7fd8ff">Workflow instructions</h3>
+<p style="font-size:28px;line-height:1.45;color:#cdc7e8">The body gives it a tested sequence of actions instead of inventing one.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:36px;color:#c3adff">Checks and guardrails</h3>
+<p style="font-size:28px;line-height:1.45;color:#cdc7e8">Health checks, stop conditions, and verification define what “done” means.</p>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">Walk through the anatomy, not the mechanics of authoring a skill. Pink: YAML frontmatter is the discovery layer — a name and a description of when to use the skill. The agent can load the full body after deciding the task matches, keeping unrelated instructions out of its working context. Cyan: Markdown instructions turn tool knowledge into a repeatable workflow. Lavender: checks and stop conditions tell it how to handle failure and when it can claim success. These are instructions, not a security boundary — permissions, tests and review still matter. Real skills can also reference supporting docs or scripts, loaded when needed. This is a deliberately simplified illustration, not a verbatim copy of Aspire’s shipped orchestration skill. aspire agent init sets up Aspire’s skills for supported coding agents. The point is why we provide these playbooks: less guessing, more consistent tool use, and explicit verification.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:#0f0d1d;color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;justify-content:flex-end;gap:24px"><div class="ring" style="position:absolute;left:1100px;top:-200px;width:960px;height:960px;background:transparent;border:1px solid rgba(195,173,255,0.28);border-radius:50%"></div>
+<div class="ring" style="position:absolute;left:1300px;top:0px;width:560px;height:560px;background:transparent;border:1px solid rgba(195,173,255,0.28);border-radius:50%"></div>
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<p style="font-family:'Fira Code', 'Courier New', monospace;font-size:32px;font-weight:600;color:#c3adff">Demo 1 · Use AI</p>
+<h1 style="font-size:120px;font-weight:600;letter-spacing:-4px;line-height:1.05">Supercharge an app<br>with Aspire + AI</h1>
+<p style="font-size:32px;line-height:1.5;color:#cdc7e8;width:1200px">Barista Notes — bring an existing app into the Aspire + AI dev loop.</p>
+</div>
+<aside class="notes">Demo Barista Notes, an existing app built by someone else, rather than starting from scratch. Credit the app’s creator when introducing it. Show how Aspire and coding agents improve the development loop around a real app. Suggested flow: establish the starting app, bring it into Aspire, and run aspire agent init to set up skills and MCP. Give the coding agent a concrete task, then narrate how it runs the stack, tests user flows, runs custom commands and checks logs, traces and health. Mention Playwright MCP when exercising the app in the browser. The win to land: the agent can operate the app and verify its work, with you reviewing the result.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;gap:56px">
+<a href="../shared/img/dashboard-13-6-dark.png" data-preview-image aria-label="Enlarge the Aspire 13.6 dashboard screenshot" style="position:absolute;left:952px;top:344px;width:840px;height:472.5px">
+<img src="../shared/img/dashboard-13-6-dark.png" alt="Aspire 13.6 dashboard showing structured logs and the run history selector" style="width:840px;height:472.5px;object-fit:contain;border-radius:24px;border:1px solid rgba(195,173,255,0.28);box-shadow:0 42px 120px rgba(7,4,24,0.6)">
+</a>
+<p style="position:absolute;left:952px;top:841px;font-size:24px;color:#c3adff">Aspire 13.6 · Select to enlarge · Esc to return</p>
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Aspire for AI dev</h2>
+<div style="display:flex;flex-direction:column;gap:40px;width:740px">
+<div style="display:flex;gap:28px">
+<div style="width:72px;height:72px;border-radius:18px;background:rgba(195,173,255,0.12);display:flex;align-items:center;justify-content:center"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:40px;height:40px"><polygon points="6 3 20 12 6 21 6 3" /></svg></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px"><h3 style="font-size:36px;font-weight:600">Local dev loop</h3><p style="font-size:28px;line-height:1.5;color:#cdc7e8">Run the full stack against local or provisioned models.</p></div>
+</div>
+<div style="display:flex;gap:28px">
+<div style="width:72px;height:72px;border-radius:18px;background:rgba(195,173,255,0.12);display:flex;align-items:center;justify-content:center"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:40px;height:40px"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px"><h3 style="font-size:36px;font-weight:600">Observability</h3><p style="font-size:28px;line-height:1.5;color:#cdc7e8">GenAI visualizations for OpenTelemetry in the dashboard.</p></div>
+</div>
+<div style="display:flex;gap:28px">
+<div style="width:72px;height:72px;border-radius:18px;background:rgba(195,173,255,0.12);display:flex;align-items:center;justify-content:center"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:40px;height:40px"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></svg></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px"><h3 style="font-size:36px;font-weight:600">Deployment</h3><p style="font-size:28px;line-height:1.5;color:#cdc7e8">Your agent is just another service, container and endpoint.</p></div>
+</div>
+</div>
+</div>
+<aside class="notes">Bridge from the coding-agent demo into the Build AI half: Aspire provides the local dev loop, observability and deployment model around AI apps. Locally: run the whole stack against a local or provisioned model. In the dashboard: inspect logs and traces; Agent Framework’s OpenTelemetry can show GenAI spans with prompts, tool calls and token counts. At deploy time, the agent is another resource in the AppHost. The screenshot is the official Aspire 13.6 structured-logs and run-history image, not a GenAI trace: https://aspire.dev/whats-new/aspire-13-6/ (run-history-dark). Show the actual agent telemetry in the Agent Framework demo.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:#0f0d1d;color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;justify-content:flex-end;gap:24px"><div class="ring" style="position:absolute;left:1100px;top:-200px;width:960px;height:960px;background:transparent;border:1px solid rgba(195,173,255,0.28);border-radius:50%"></div>
+<div class="ring" style="position:absolute;left:1300px;top:0px;width:560px;height:560px;background:transparent;border:1px solid rgba(195,173,255,0.28);border-radius:50%"></div>
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<p style="font-family:'Fira Code', 'Courier New', monospace;font-size:32px;font-weight:600;color:#c3adff">Part 2 · Build AI</p>
+<h1 style="font-size:120px;font-weight:600;letter-spacing:-4px;line-height:1.05;width:1400px">Building agents with Microsoft Agent Framework</h1>
+<p style="font-size:32px;line-height:1.5;color:#cdc7e8;width:1200px">Agent Framework + Aspire, end to end</p>
+</div>
+<aside class="notes">Hand-off to the Build AI half. We’ve seen a coding agent use Aspire; now we build the kind of agent your customers will talk to — and Aspire runs everything around it.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;gap:56px"><img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">An agentic app is a distributed app</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:28px;padding:40px">
+<div style="display:flex;align-items:center;gap:20px"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:44px;height:44px"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg><h3 style="font-size:36px;font-weight:600">Models</h3></div>
+<p style="font-size:28px;line-height:1.5;color:#cdc7e8">Local or cloud deployments, keys and endpoints</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:28px;padding:40px">
+<div style="display:flex;align-items:center;gap:20px"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:44px;height:44px"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg><h3 style="font-size:36px;font-weight:600">Agents</h3></div>
+<p style="font-size:28px;line-height:1.5;color:#cdc7e8">One or many services, often in different languages</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:28px;padding:40px">
+<div style="display:flex;align-items:center;gap:20px"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:44px;height:44px"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg><h3 style="font-size:36px;font-weight:600">Tools and MCP</h3></div>
+<p style="font-size:28px;line-height:1.5;color:#cdc7e8">Servers and APIs your agents call to get work done</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:28px;padding:40px">
+<div style="display:flex;align-items:center;gap:20px"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:44px;height:44px"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></svg><h3 style="font-size:36px;font-weight:600">Memory</h3></div>
+<p style="font-size:28px;line-height:1.5;color:#cdc7e8">Vector stores, caches and databases for context</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:28px;padding:40px">
+<div style="display:flex;align-items:center;gap:20px"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:44px;height:44px"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg><h3 style="font-size:36px;font-weight:600">Frontends</h3></div>
+<p style="font-size:28px;line-height:1.5;color:#cdc7e8">The chat UI or app your users actually see</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:28px;padding:40px">
+<div style="display:flex;align-items:center;gap:20px"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:44px;height:44px"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg><h3 style="font-size:36px;font-weight:600">Telemetry</h3></div>
+<p style="font-size:28px;line-height:1.5;color:#cdc7e8">What did the model actually do, and why?</p>
+</div>
+</div>
+</div>
+<aside class="notes">The key reframe: an “agent” is never just a prompt. It’s a model deployment, one or more agent services, tools and MCP servers, memory, a frontend, and telemetry so you can tell what happened. That’s a distributed app — exactly the thing Aspire was built to wrangle.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;gap:48px"><img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<div style="display:flex;flex-direction:column;gap:20px">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Microsoft Agent Framework</h2>
+<p style="font-size:32px;line-height:1.5;color:#cdc7e8;width:1600px">Open-source SDK for AI agents and multi-agent workflows. 1.0 for .NET and Python since April 2026; Go in preview.</p>
+</div>
+<div style="display:flex;gap:32px;flex:1">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:28px;padding:40px">
+<svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:44px;height:44px"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+<h3 style="font-size:36px;font-weight:600">Agents</h3>
+<p style="font-size:28px;line-height:1.5;color:#cdc7e8">Foundry, OpenAI, Anthropic, Ollama and more behind one API</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:28px;padding:40px">
+<svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:44px;height:44px"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" /><circle cx="12" cy="12" r="3" /></svg>
+<h3 style="font-size:36px;font-weight:600">Workflows</h3>
+<p style="font-size:28px;line-height:1.5;color:#cdc7e8">Graph-based: sequential, concurrent, handoff, group chat</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:28px;padding:40px">
+<svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:44px;height:44px"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg>
+<h3 style="font-size:36px;font-weight:600">Tools and MCP</h3>
+<p style="font-size:28px;line-height:1.5;color:#cdc7e8">Your own functions plus any MCP server, with middleware</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(195,173,255,0.22);border-radius:28px;padding:40px">
+<svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:44px;height:44px"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg>
+<h3 style="font-size:36px;font-weight:600">Telemetry</h3>
+<p style="font-size:28px;line-height:1.5;color:#cdc7e8">OpenTelemetry GenAI traces and metrics for every call</p>
+</div>
+</div>
+<p style="font-size:26px;color:#9c97b8">The successor to Semantic Kernel and AutoGen, built by the same teams.</p>
+</div>
+<aside class="notes">Tommaso’s slide. Agent Framework is the “what goes inside the agent service” piece: one agent abstraction across model providers, graph-based multi-agent workflows (sequential, concurrent, handoff, group chat, Magentic-One), tool calling and MCP. 1.0 shipped in April 2026 for .NET and Python with stable APIs; Go is in preview. The bit that matters for us: it emits OpenTelemetry spans (invoke_agent, chat, execute_tool) and token-usage metrics using the GenAI semantic conventions — and its own docs recommend the Aspire dashboard for local dev. In Python instrumentation is on by default; in .NET you add UseOpenTelemetry().</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:#0f0d1d;color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;gap:48px"><img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Modeling an agentic app in the AppHost</h2>
+<div style="display:flex;flex-direction:column;background:#221f3a;border:1px solid rgba(195,173,255,0.22);border-radius:32px;overflow:hidden;font-family:'Fira Code', 'Courier New', monospace">
+<div style="display:flex;align-items:center;gap:40px;padding:20px 40px;border-bottom:1px solid rgba(195,173,255,0.22)">
+<p style="font-size:24px;color:#f6f3ff">apphost.ts</p>
+<div style="flex:1"></div>
+<div style="display:flex;align-items:center;gap:12px"><div style="width:16px;height:16px;border-radius:4px;background:#f08bff"></div><p style="font-size:24px;color:#9c97b8">AI model</p></div>
+<div style="display:flex;align-items:center;gap:12px"><div style="width:16px;height:16px;border-radius:4px;background:#7fd8ff"></div><p style="font-size:24px;color:#9c97b8">Agent + frontend</p></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:32px;padding:40px">
+<div style="display:flex;gap:32px">
+<div style="width:6px;background:#f08bff;border-radius:3px"></div>
+<div style="display:flex;flex-direction:column">
+<p style="font-size:28px;line-height:1.6;color:#cdc7e8;white-space:nowrap"><span style="color:#c3adff">const</span> foundry = <span style="color:#c3adff">await</span> builder.<b style="color:#f08bff">addFoundry</b>(<span style="color:#9c97b8">"foundry"</span>);</p>
+<p style="font-size:28px;line-height:1.6;color:#cdc7e8;white-space:nowrap"><span style="color:#c3adff">const</span> chat = foundry.<b style="color:#f08bff">addDeployment</b>(<span style="color:#9c97b8">"chatmodel"</span>, FoundryModels.OpenAI.Gpt41);</p>
+</div>
+</div>
+<div style="display:flex;gap:32px">
+<div style="width:6px;background:#7fd8ff;border-radius:3px"></div>
+<div style="display:flex;flex-direction:column">
+<p style="font-size:28px;line-height:1.6;color:#cdc7e8;white-space:nowrap"><span style="color:#c3adff">const</span> agent = <span style="color:#c3adff">await</span> builder.<b style="color:#7fd8ff">addPythonApp</b>(<span style="color:#9c97b8">"agent"</span>, <span style="color:#9c97b8">"../agent"</span>, <span style="color:#9c97b8">"main.py"</span>)</p>
+<p style="font-size:28px;line-height:1.6;color:#cdc7e8;white-space:nowrap;padding:0 0 0 72px">.<span style="color:#f6f3ff">withReference</span>(chat);</p>
+<p style="font-size:28px;line-height:1.6;color:#cdc7e8;white-space:nowrap"><span style="color:#c3adff">await</span> builder.<b style="color:#7fd8ff">addViteApp</b>(<span style="color:#9c97b8">"frontend"</span>, <span style="color:#9c97b8">"../frontend"</span>)</p>
+<p style="font-size:28px;line-height:1.6;color:#cdc7e8;white-space:nowrap;padding:0 0 0 72px">.<span style="color:#f6f3ff">withReference</span>(agent);</p>
+</div>
+</div>
+</div>
+</div>
+<p style="font-size:30px;line-height:1.4;color:#c3adff">Connect with references, not hand-wired config — same path from local dev to deployment.</p>
+</div>
+<aside class="notes">Tommaso’s “Modeling an agentic app” points, merged here: an agent app is a distributed app, so declare each part as a resource — Agent Framework services, model endpoints, MCP servers and tools, plus a vector store or database and a frontend chat UI. Connect them with references, not hand-wired config: endpoints, connection strings and keys flow from the AppHost, and the same app model runs locally and drives deployment. The whole agentic app in a handful of lines: a model deployment, an Agent Framework service that references it, and a frontend that references the agent. Aspire injects the endpoint and credentials, so the agent code never hard-codes a key. CHECK BEFORE THE TALK: match this snippet to the exact APIs and languages in the demo repo.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:#0f0d1d;color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;justify-content:flex-end;gap:24px"><div class="ring" style="position:absolute;left:1100px;top:-200px;width:960px;height:960px;background:transparent;border:1px solid rgba(195,173,255,0.28);border-radius:50%"></div>
+<div class="ring" style="position:absolute;left:1300px;top:0px;width:560px;height:560px;background:transparent;border:1px solid rgba(195,173,255,0.28);border-radius:50%"></div>
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<p style="font-family:'Fira Code', 'Courier New', monospace;font-size:32px;font-weight:600;color:#c3adff">Demo 2 · Build AI</p>
+<h1 style="font-size:160px;font-weight:600;letter-spacing:-5px;line-height:1">Agent Framework demo</h1>
+<p style="font-size:32px;line-height:1.5;color:#cdc7e8;width:1200px">An Agent Framework agent, a model and a frontend — orchestrated by Aspire, traced in the dashboard.</p>
+</div>
+<aside class="notes">Placeholder for the live Agent Framework demo. Final demo app and walkthrough to be confirmed. Suggested flow: start from the AppHost, aspire run, show the agent answering in the frontend, then open the dashboard and walk a GenAI trace — prompt, tool call, tokens. Bonus if time: swap the model deployment and re-run without touching agent code.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;gap:48px"><img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Resources</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0px 48px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(195,173,255,0.22);padding:22px 0"><p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#c3adff">Aspire docs</p><p style="font-size:32px;font-weight:500"><a href="https://aspire.dev">aspire.dev</a></p></div>
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(195,173,255,0.22);padding:22px 0"><p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#c3adff">Agent Framework</p><p style="font-size:32px;font-weight:500"><a href="https://github.com/microsoft/agent-framework">github.com/microsoft/agent-framework</a></p></div>
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(195,173,255,0.22);padding:22px 0"><p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#c3adff">Install the CLI</p><p style="font-size:32px;font-weight:500"><a href="https://get.aspire.dev">get.aspire.dev</a></p></div>
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(195,173,255,0.22);padding:22px 0"><p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#c3adff">Agent skills</p><p style="font-size:32px;font-weight:500"><a href="https://github.com/microsoft/aspire-skills">github.com/microsoft/aspire-skills</a></p></div>
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(195,173,255,0.22);padding:22px 0"><p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#c3adff">Integrations</p><p style="font-size:32px;font-weight:500"><a href="https://aspire.dev/integrations">aspire.dev/integrations</a></p></div>
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(195,173,255,0.22);padding:22px 0"><p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#c3adff">Samples</p><p style="font-size:32px;font-weight:500"><a href="https://github.com/microsoft/aspire-samples">github.com/microsoft/aspire-samples</a></p></div>
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(195,173,255,0.22);border-bottom:1px solid rgba(195,173,255,0.22);padding:22px 0"><p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#c3adff">Community</p><p style="font-size:32px;font-weight:500"><a href="https://aka.ms/aspire-discord">aka.ms/aspire-discord</a></p></div>
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(195,173,255,0.22);border-bottom:1px solid rgba(195,173,255,0.22);padding:22px 0"><p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#c3adff">Today’s demo</p><p style="font-size:32px;font-weight:500"><a href="https://aka.ms/aspire/techorama-2026">aka.ms/aspire/techorama-2026</a></p></div>
+</div>
+</div>
+<aside class="notes">Leave this up during Q&amp;A. Agent skills is the one to try first — it’s what made demo 2 work. The Techorama short link goes to the homepage with both sessions’ demos — make sure it’s live before the talk.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide closing-slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%)">
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<div class="closing-layout">
+<div class="closing-content">
+<h1>Thank you</h1>
+<p class="closing-tagline">Now go let an agent build your next agent.</p>
+<div class="closing-contacts">
+<div class="closing-contact"><p class="closing-contact-label">Docs</p><p class="closing-contact-value">aspire.dev</p></div>
+<div class="closing-contact"><p class="closing-contact-label">Socials</p><p class="closing-contact-value">@aspiredotdev</p></div>
+<div class="closing-contact"><p class="closing-contact-label">Maddy</p><p class="closing-contact-value">@maddymontaquila</p></div>
+<div class="closing-contact"><p class="closing-contact-label">Tommaso</p><p class="closing-contact-value">@tommasodotNET</p></div>
+</div>
+<p class="closing-review-prompt">Scan to review this session.</p>
+</div>
+<img class="closing-review-qr" src="../shared/img/agents-review-qr.png" alt="SpreaView review QR code for Use agents to build agents with Aspire + Microsoft Agent Framework">
+</div>
+</div>
+<aside class="notes">Thank everyone and invite them to scan the QR code to give feedback on this agents session. Leave the code visible while inviting them to come find us with their agent questions. Flip back to Resources if Q&amp;A runs long.</aside>
+</section>
+</div>
+</div>
+<script type="module" src="../shared/deck.js"></script>
+</body>
+</html>
