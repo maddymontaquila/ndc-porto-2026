@@ -238,6 +238,25 @@
 </div>
 <aside class="notes">The agent can only see what your app reports, so telemetry is part of the setup. OpenTelemetry works in any language: Aspire injects the right settings into every resource, like the OTLP endpoint for the dashboard and the service name, so you just point the OpenTelemetry SDK at them. Fun fact: if you’re on .NET it’s even easier. The service defaults project wires up logs, traces and metrics, plus health checks and resilience, with one call. The practical advice either way: don’t hand-write it. Ask your agent to do it in one shot; with Aspire’s skills it gets it right.</aside>
 </section>
+<section id="eyes" data-transition="fade">
+<div class="slide m">
+<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<div style="display:flex; flex-direction:column; gap:16px">
+<h2 class="title">We built our CLI for agents</h2>
+<p class="lead">It’s your agent’s interface to everything you can do and see.</p>
+</div>
+<div style="display:flex; flex-direction:column">
+<div class="row" style="align-items:center; padding:10px 0"><p class="chip" style="width:600px">aspire agent init</p><p class="copy">Sets up Aspire’s skills and MCP for your coding agent.</p></div>
+<div class="row" style="align-items:center; padding:10px 0"><p class="chip" style="width:600px">aspire start</p><p class="copy">Runs the whole app in the background, tracked and restartable.</p></div>
+<div class="row" style="align-items:center; padding:10px 0"><p class="chip" style="width:600px">aspire start --isolated</p><p class="copy">A separate instance per worktree, with no port conflicts.</p></div>
+<div class="row" style="align-items:center; padding:10px 0"><p class="chip" style="width:600px">aspire resource &lt;name&gt; &lt;command&gt;</p><p class="copy">Start, stop or restart one resource, or run its commands.</p></div>
+<div class="row" style="align-items:center; padding:10px 0"><p class="chip" style="width:600px">aspire logs</p><p class="copy">Resource logs, filtered to what the task needs.</p></div>
+<div class="row" style="align-items:center; padding:10px 0"><p class="chip" style="width:600px">aspire otel</p><p class="copy">OpenTelemetry traces and spans, from the terminal.</p></div>
+<div class="row" style="align-items:center; padding:10px 0; border-bottom:1px solid rgba(195,173,255,0.22)"><p class="chip" style="width:600px">aspire docs</p><p class="copy">The highest-confidence docs articles for the task.</p></div>
+</div>
+</div>
+<aside class="notes">The dashboard is how you see the app. The CLI is the same information and the same controls, codified for an agent: structured, filtered and small enough to fit in context. aspire agent init sets up skills and MCP. aspire start runs everything; add --isolated when agents work in parallel worktrees so instances don’t fight over ports. aspire resource lets the agent act on one resource, for example aspire resource api restart, instead of tearing down the whole app. aspire logs and aspire otel give it what you’d see in the dashboard, and aspire docs finds the right documentation.</aside>
+</section>
 <section id="loop" data-transition="fade">
 <div class="slide m">
 <img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
@@ -274,6 +293,16 @@
 </div>
 <aside class="notes">Opens on the loop without Aspire, and it’s miserable. The agent greps for a README, guesses the start command, hunts for env vars, fights a port conflict, starts services one at a time and hopes the order is right. Then it finally changes code without seeing the rest of the system, asks you what broke, and updates a Markdown file so it knows next time. It won’t. Back to step 1. Click: the same loop with Aspire, down to four steps. Step 1 is aspire start: the agent doesn’t need to read or change anything to run the whole app, then it reads the AppHost to learn the topology. Change code. Operate: exercise user flows and run Aspire custom commands; Playwright MCP is a good example for driving the browser. Inspect and verify: logs, traces and resource health from the CLI. Loop back to step 2 until the intended behavior is verified, not just until the stack is green.</aside>
 </section>
+<section id="demo" data-transition="fade">
+<div class="slide m" style="justify-content:center; padding:128px 144px; gap:32px">
+<img src="../shared/img/deck-bg-cubes.png" alt="" style="position:absolute; left:1280px; top:0px; width:640px; height:1080px; object-fit:cover">
+<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<div style="display:flex; align-items:center; gap:24px"><p class="num">01</p><p class="ey" style="color:#9c97b8">Demo</p></div>
+<h2 style="font-size:120px; font-weight:600; letter-spacing:-4px; line-height:1.02; width:1040px">Hand your agent the map</h2>
+<p class="chip">&gt; aspire agent init</p>
+</div>
+<aside class="notes">Demo flow: start with [demo app], an existing app. Bring it into Aspire and run aspire agent init to set up skills and MCP. Give the agent a concrete task, then narrate as it reads the AppHost, runs the stack with aspire start, exercises the app and checks logs, traces and health. The win: the agent verifies its own work, and you review the result.</aside>
+</section>
 <section id="deploy" data-transition="fade">
 <div class="slide m">
 <img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
@@ -299,41 +328,13 @@
 </div>
 <aside class="notes">If you choose to deploy with Aspire, local and deployed share one app model. Locally you get dev servers with hot reload and the dashboard. Your agent can stand up test and staging environments from the same AppHost. And production has the topology your agent already read locally. Story: Bingo. A Log Analytics workspace blew up. In my local repo I asked the agent what happened. Without connecting to Azure, it worked out the likely cause from the AppHost alone, then cross-referenced with Azure to confirm, because it’s the same model.</aside>
 </section>
-<section id="eyes" data-transition="fade">
-<div class="slide m">
-<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
-<div style="display:flex; flex-direction:column; gap:16px">
-<h2 class="title">We built our CLI for agents</h2>
-<p class="lead">It’s your agent’s interface to everything you can do and see.</p>
-</div>
-<div style="display:flex; flex-direction:column">
-<div class="row" style="align-items:center; padding:14px 0"><p class="chip" style="width:470px">aspire agent init</p><p class="copy">Sets up Aspire’s skills and MCP for your coding agent.</p></div>
-<div class="row" style="align-items:center; padding:14px 0"><p class="chip" style="width:470px">aspire start</p><p class="copy">Runs the whole app in the background, tracked and restartable.</p></div>
-<div class="row" style="align-items:center; padding:14px 0"><p class="chip" style="width:470px">aspire start --isolated</p><p class="copy">A separate instance per worktree, with no port conflicts.</p></div>
-<div class="row" style="align-items:center; padding:14px 0"><p class="chip" style="width:470px">aspire logs</p><p class="copy">Resource logs, filtered to what the task needs.</p></div>
-<div class="row" style="align-items:center; padding:14px 0"><p class="chip" style="width:470px">aspire otel</p><p class="copy">OpenTelemetry traces and spans, from the terminal.</p></div>
-<div class="row" style="align-items:center; padding:14px 0; border-bottom:1px solid rgba(195,173,255,0.22)"><p class="chip" style="width:470px">aspire docs</p><p class="copy">The highest-confidence docs articles for the task.</p></div>
-</div>
-</div>
-<aside class="notes">The dashboard is how you see the app. The CLI is the same information, codified for an agent: structured, filtered and small enough to fit in context. aspire agent init sets up skills and MCP. aspire start runs everything; add --isolated when agents work in parallel worktrees so instances don’t fight over ports. aspire logs and aspire otel give it what you’d see in the dashboard, and aspire docs finds the right documentation.</aside>
-</section>
-<section id="demo" data-transition="fade">
-<div class="slide m" style="justify-content:center; padding:128px 144px; gap:32px">
-<img src="../shared/img/deck-bg-cubes.png" alt="" style="position:absolute; left:1280px; top:0px; width:640px; height:1080px; object-fit:cover">
-<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
-<div style="display:flex; align-items:center; gap:24px"><p class="num">01</p><p class="ey" style="color:#9c97b8">Demo</p></div>
-<h2 style="font-size:120px; font-weight:600; letter-spacing:-4px; line-height:1.02; width:1040px">Hand your agent the map</h2>
-<p class="chip">&gt; aspire agent init</p>
-</div>
-<aside class="notes">Demo flow: start with [demo app], an existing app. Bring it into Aspire and run aspire agent init to set up skills and MCP. Give the agent a concrete task, then narrate as it reads the AppHost, runs the stack with aspire start, exercises the app and checks logs, traces and health. The win: the agent verifies its own work, and you review the result.</aside>
-</section>
 <section id="recap" data-transition="fade">
 <div class="slide m">
 <img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
-<h2 class="title">Take the map with you</h2>
+<h2 class="title">Aspire is the best tool for coding agents</h2>
 <div style="display:flex; flex-direction:column">
 <div class="row"><p class="num">01</p><p class="lead"><b class="ink">Agents get lost in what they can’t see.</b> Give them the system, not just the files.</p></div>
-<div class="row"><p class="num">02</p><p class="lead"><b class="ink">The AppHost is a map they can read.</b> The CLI and dashboard are how they navigate it.</p></div>
+<div class="row"><p class="num">02</p><p class="lead"><b class="ink">The AppHost is a map they can read.</b> The CLI and dashboard are how you both navigate it.</p></div>
 <div class="row" style="border-bottom:1px solid rgba(195,173,255,0.22)"><p class="num">03</p><p class="lead"><b class="ink">Start today.</b> Aspireify your app with no code changes, run aspire agent init, and give your agent a real task.</p></div>
 </div>
 <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:20px 48px">
