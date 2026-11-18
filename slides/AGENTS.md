@@ -6,6 +6,7 @@ Instructions for any coding agent (Copilot, Claude Code, Codex, Cursor…) editi
 
 | Path | What it is |
 | --- | --- |
+| `map/index.html` | NDC Porto: "Aspire is the map your coding agent is missing", Thu 19 Nov, Room 2. Its styles live in `map/map.css`, scoped to `.slide.m`, and `map/map.js` loads them after the shared setup |
 | `agents/index.html` | "Use agents to build agents with Aspire + Microsoft Agent Framework", Wed 28 Oct, Room 12 |
 | `templates/index.html` | A runnable gallery deck: one example of every slide layout, ready to copy |
 | `docs/design-guidelines.md` | Brand and layout rules (colors, type scale, spacing, components, voice) |

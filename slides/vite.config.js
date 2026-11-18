@@ -18,6 +18,7 @@ export default defineConfig({
     rolldownOptions: {
       input: {
         index: fileURLToPath(new URL('./index.html', import.meta.url)),
+        map: fileURLToPath(new URL('./map/index.html', import.meta.url)),
         agents: fileURLToPath(new URL('./agents/index.html', import.meta.url)),
         templates: fileURLToPath(new URL('./templates/index.html', import.meta.url))
       }

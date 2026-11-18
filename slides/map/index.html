@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aspire is the map your coding agent is missing</title>
+<link rel="icon" type="image/svg+xml" href="../shared/img/aspire-favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="../shared/img/aspire-favicon.png">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="cover" data-transition="fade">
+<div class="slide m hero" style="justify-content:center; gap:40px; padding:128px 144px">
+<div class="orbit" style="left:1000px; top:300px; width:880px; height:360px; transform:rotate(-10deg); border-radius:50%"></div>
+<div class="orbit" style="left:1100px; top:340px; width:680px; height:280px; transform:rotate(12deg); border-radius:50%"></div>
+<img src="../shared/img/aspire-hero.png" alt="" style="position:absolute; left:1210px; top:300px; width:560px; height:431px; object-fit:contain">
+<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<p class="ey">NDC Porto 2026</p>
+<h1 style="font-size:100px; font-weight:600; letter-spacing:-3px; line-height:1.04; width:1060px">Aspire is the map your coding agent is missing</h1>
+<div style="display:flex; flex-direction:column; gap:8px">
+<p style="font-size:32px; font-weight:600">Maddy Montaquila · Adam Ratzman</p>
+<p class="subtle">Thursday 19 November · 11:40 · Room 2</p>
+</div>
+</div>
+<aside class="notes">Welcome. Today is about one idea: coding agents are smart, but they get dropped into your codebase with no picture of the running system. Aspire gives them that picture — the map: a safe, structured way to work with your entire app. We’ll show what that looks like, then prove it in a demo.</aside>
+</section>
+<section id="speakers" data-transition="fade">
+<div class="slide m">
+<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<h2 class="title">Who we are</h2>
+<div style="display:flex; gap:96px">
+<div class="rise" style="--i:0; flex:1; display:flex; flex-direction:column; gap:20px">
+<img src="../shared/img/maddy.png" alt="Maddy Montaquila" style="width:300px; height:300px; border-radius:150px; object-fit:cover; border:1px solid rgba(195,173,255,0.28)">
+<h3 style="font-size:44px; font-weight:600; margin-top:12px">Maddy Montaquila</h3>
+<p class="copy">Principal PM, Aspire @ Microsoft</p>
+<p class="copy hi">@maddymontaquila</p>
+</div>
+<div class="rise" style="--i:1; flex:1; display:flex; flex-direction:column; gap:20px">
+<img src="../shared/img/adam.png" alt="Adam Ratzman" style="width:300px; height:300px; border-radius:150px; object-fit:cover; border:1px solid rgba(195,173,255,0.28)">
+<h3 style="font-size:44px; font-weight:600; margin-top:12px">Adam Ratzman</h3>
+<p class="copy">Senior Software Engineer, Aspire @ Microsoft</p>
+<p class="copy hi">@adamint on GitHub</p>
+</div>
+</div>
+</div>
+<aside class="notes">Quick intros. Maddy: PM on Aspire. Adam: senior software engineer on the Aspire team. Ask the room who has a coding agent open in another window right now.</aside>
+</section>
+<section id="city" data-transition="fade">
+<div class="slide m" style="justify-content:center; padding:128px 144px">
+<img src="../shared/img/city-map-dark.png" alt="A tangle of unlabeled streets connecting many parts of an app" style="position:absolute; left:1114px; top:140px; width:678px; height:800px; object-fit:contain">
+<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<div style="width:860px; display:flex; flex-direction:column; gap:64px; margin-top:60px">
+<h2 style="font-size:112px; font-weight:600; letter-spacing:-4px; line-height:1.02">Modern apps are messy</h2>
+<div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:22px 32px; width:780px">
+<div style="display:flex; align-items:center; gap:16px"><div class="dot" style="background:#7c5cff"></div><p style="font-size:24px; font-weight:500">Environment config</p></div>
+<div style="display:flex; align-items:center; gap:16px"><div class="dot" style="background:#c43ad6"></div><p style="font-size:24px; font-weight:500">Frontends</p></div>
+<div style="display:flex; align-items:center; gap:16px"><div class="dot" style="background:#ff5a6e"></div><p style="font-size:24px; font-weight:500">Backends</p></div>
+<div style="display:flex; align-items:center; gap:16px"><div class="dot" style="background:#1f8fff"></div><p style="font-size:24px; font-weight:500">Services</p></div>
+<div style="display:flex; align-items:center; gap:16px"><div class="dot" style="background:#14a7a7"></div><p style="font-size:24px; font-weight:500">Observability</p></div>
+<div style="display:flex; align-items:center; gap:16px"><div class="dot" style="background:#4ea8ff"></div><p style="font-size:24px; font-weight:500">Agents + AI</p></div>
+<div style="display:flex; align-items:center; gap:16px"><div class="dot" style="background:#2bb59a"></div><p style="font-size:24px; font-weight:500">Manifests + scripts</p></div>
+<div style="display:flex; align-items:center; gap:16px"><div class="dot" style="background:#c9a400"></div><p style="font-size:24px; font-weight:500">Deployment handoff</p></div>
+</div>
+</div>
+</div>
+<aside class="notes">Modern apps are a city: frontends, APIs, caches, databases, queues, cloud services, and now models and agents too. You know your way around because you live there. Your coding agent just arrived. It can read every file, but nothing tells it how the pieces connect, which ones are running, or what’s happening between them.</aside>
+</section>
+<section id="guess" data-transition="fade">
+<div class="slide m">
+<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<h2 class="title">You’ve become the feedback loop</h2>
+<div style="display:flex; flex-direction:column; gap:20px">
+<div class="chat-row"><p class="who">agent</p><p class="bubble agent">I started the API for you, and a subagent is watching it for errors. Can you open the frontend and try checkout?</p></div>
+<div class="chat-row build fragment" data-fragment-index="1"><div style="flex:1; display:flex; justify-content:flex-start"><p class="tag">copy-pasting logs</p></div><div class="bubble you"><p>Checkout just spins. The console says:</p><p class="log">POST http://localhost:5173/api/checkout 502 (Bad Gateway)</p></div><p class="who you-label">you</p></div>
+<div class="chat-row build fragment" data-fragment-index="2"><p class="who">agent</p><p class="bubble agent">My other subagent is still hung up running the API. Can you start Redis, tell me the port and screenshot its logs?</p><div style="flex:1; display:flex; justify-content:flex-end"><p class="tag">running pieces in isolation</p></div></div>
+<div class="chat-row build fragment" data-fragment-index="3"><div style="flex:1"></div><p class="bubble you">Port 6379, I think? Screenshot attached.</p><p class="who you-label">you</p></div>
+<div class="chat-row build fragment" data-fragment-index="4"><p class="who">agent</p><p class="bubble agent">Thanks! I’ve written all the ports down in AGENTS.md for next time.</p><div style="flex:1; display:flex; justify-content:flex-end"><p class="tag">keeping Markdown up to date</p></div></div>
+</div>
+</div>
+<aside class="notes">Builds on click, like a real chat. Agents can run things now, but they still can’t see the whole app. The agent started the API itself and has a subagent watching it, then asks you to open the frontend and try checkout. Click 1: it hangs, and you copy the console error back into the chat. That’s copy-pasting logs. Click 2: its other subagent is stuck babysitting the API, so it asks you to start Redis, find the port and screenshot the logs. That’s running pieces in isolation. Click 3: you guess the port and attach a screenshot. Click 4: it writes the ports down in AGENTS.md, which will be stale the next time someone adds a service. That’s keeping Markdown up to date. The feedback loop is still manual, and you’re the one running it.</aside>
+</section>
+<section id="map" data-transition="fade">
+<div class="slide m" style="padding:200px 144px 128px; gap:48px">
+<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<img src="../shared/img/what-map-dark.png" alt="The same city tangle, with one bright Aspire route through five labeled stops" style="position:absolute; left:980px; top:180px; width:643px; height:760px; object-fit:contain">
+<div class="stop" style="left:1133px; top:812px"><div class="dot" style="background:#c9a400"></div><p class="stop-label">Cloud service</p></div>
+<div class="stop" style="left:1291px; top:634px"><div class="dot" style="background:#1f8fff"></div><p class="stop-label">Database</p></div>
+<div class="stop" style="left:1429px; top:530px"><div class="dot" style="background:#14a7a7"></div><p class="stop-label">Cache</p></div>
+<div class="stop" style="left:1421px; top:413px"><div class="dot" style="background:#ff5a6e"></div><p class="stop-label">Web API</p></div>
+<div class="stop" style="left:1552px; top:277px"><div class="dot" style="background:#c43ad6"></div><p class="stop-label">Frontend</p></div>
+<h2 style="font-size:48px; font-weight:600; letter-spacing:-1px; line-height:1.18; width:780px">Aspire is an agent-ready, code-first tool to compose, debug and deploy any distributed app.</h2>
+<div style="width:780px; display:flex; flex-direction:column; gap:28px">
+<div class="rise" style="--i:0; display:flex; gap:24px; align-items:center"><div class="tile" style="width:64px; height:64px; border-radius:18px; flex:none"><svg class="ic" style="width:32px; height:32px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg></div><p class="copy">Code-first dev and deployment for your entire distributed app.</p></div>
+<div class="rise" style="--i:1; display:flex; gap:24px; align-items:center"><div class="tile" style="width:64px; height:64px; border-radius:18px; flex:none"><svg class="ic" style="width:32px; height:32px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg></div><p class="copy">Agents know every detail of your system.</p></div>
+<div class="rise" style="--i:2; display:flex; gap:24px; align-items:center"><div class="tile" style="width:64px; height:64px; border-radius:18px; flex:none"><svg class="ic" style="width:32px; height:32px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></svg></div><p class="copy">100+ integrations for popular services, platforms and stacks.</p></div>
+<div class="rise" style="--i:3; display:flex; gap:24px; align-items:center"><div class="tile" style="width:64px; height:64px; border-radius:18px; flex:none"><svg class="ic" style="width:32px; height:32px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg></div><p class="copy">OpenTelemetry logs, traces and metrics in one dashboard.</p></div>
+</div>
+</div>
+<aside class="notes">Same city, one route through it. Aspire describes the whole app (frontend, API, cache, database, cloud services) in one code-first model, with 100+ integrations and an OpenTelemetry dashboard. For you, that’s orchestration and observability. For a coding agent, it’s the full context of your app.</aside>
+</section>
+<section id="apphost" data-transition="fade">
+<div class="slide m">
+<img class="logo swap-in fragment" data-fragment-index="2" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<div class="swap-in fragment" data-fragment-index="2" style="display:flex; flex-direction:column; gap:56px">
+<h2 class="title">The AppHost defines your system in code</h2>
+<div class="code tight">
+<div class="code-bar">
+<p class="code-file">apphost.ts</p>
+<div style="flex:1"></div>
+<div class="legend"><div class="legend-swatch" style="background:#f08bff"></div><p class="legend-label">Aspire.Hosting.Redis</p></div>
+<div class="legend build fragment" data-fragment-index="5"><div class="legend-swatch" style="background:#7fd8ff"></div><p class="legend-label">Aspire.Hosting.JavaScript</p></div>
+<div class="legend build fragment" data-fragment-index="9"><div class="legend-swatch" style="background:#ffcf70"></div><p class="legend-label">Aspire.Hosting.Docker</p></div>
+</div>
+<div class="code-body" style="gap:28px">
+<div class="group build fragment" data-fragment-index="9">
+<div class="group-bar" style="background:#ffcf70"></div>
+<p class="ln"><span class="hi">await</span> builder.<b style="color:#ffcf70">addDockerComposeEnvironment</b>(<span style="color:#9c97b8">"compose"</span>);</p>
+</div>
+<div class="group">
+<div class="group-bar" style="background:#f08bff"></div>
+<div style="display:flex; flex-direction:column">
+<p class="ln"><span class="hi">const</span> cache = <span class="hi">await</span> builder.<b style="color:#f08bff">addRedis</b>(<span style="color:#9c97b8">"cache"</span>)</p>
+<p class="ln indent build fragment" data-fragment-index="3">.<span class="ink">withEnvironment</span>(<span style="color:#9c97b8">"ENV_VAR"</span>, <span style="color:#9c97b8">"envvar"</span>)</p>
+<p class="ln indent build fragment" data-fragment-index="4">.<b style="color:#f08bff">withRedisCommander</b>();</p>
+</div>
+</div>
+<div class="group build fragment" data-fragment-index="5">
+<div class="group-bar" style="background:#7fd8ff"></div>
+<div style="display:flex; flex-direction:column">
+<p class="ln"><span class="hi">await</span> builder.<b style="color:#7fd8ff">addViteApp</b>(<span style="color:#9c97b8">"frontend"</span>, <span style="color:#9c97b8">"./frontend"</span>)</p>
+<p class="ln indent build fragment" data-fragment-index="6">.<span class="ink">withReference</span>(cache)</p>
+<p class="ln indent build fragment" data-fragment-index="7">.<b style="color:#7fd8ff">withYarn</b>()</p>
+<p class="ln indent build fragment" data-fragment-index="8">.<b style="color:#7fd8ff">publishAsStaticWebsite</b>()</p>
+<p class="ln indent build fragment" data-fragment-index="9">.<b style="color:#ffcf70">publishAsDockerComposeService</b>(<span class="hi">async</span> (_, svc) =&gt; <span class="hi">await</span> svc.restart.set(<span style="color:#9c97b8">"always"</span>));</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="yaml-panel swap-out fragment" data-fragment-index="2">
+<div class="code-bar"><p class="code-file">docker-compose.yaml</p><div style="flex:1"></div><p class="flag build fragment" data-fragment-index="1">frontend: stuck in a container. No hot reload, no debugger.</p></div>
+<div style="display:flex; gap:48px; padding:20px 40px 24px">
+<div class="yaml-col" style="width:702px">
+<p class="yaml"><span class="k">services:</span></p>
+<p class="yaml">&#160;&#160;<span class="k">compose-dashboard:</span></p>
+<p class="yaml">&#160;&#160;&#160;&#160;image: "mcr.microsoft.com/aspire/nightly/dashboard:17.0"</p>
+<p class="yaml">&#160;&#160;&#160;&#160;environment:</p>
+<p class="yaml">&#160;&#160;&#160;&#160;&#160;&#160;ASPIRE_DASHBOARD_TELEMETRY_OPTOUT: "true"</p>
+<p class="yaml">&#160;&#160;&#160;&#160;ports:</p>
+<p class="yaml">&#160;&#160;&#160;&#160;&#160;&#160;- "18888"</p>
+<p class="yaml">&#160;&#160;&#160;&#160;expose:</p>
+<p class="yaml">&#160;&#160;&#160;&#160;&#160;&#160;- "18889"</p>
+<p class="yaml">&#160;&#160;&#160;&#160;&#160;&#160;- "18890"</p>
+<p class="yaml">&#160;&#160;&#160;&#160;networks:</p>
+<p class="yaml">&#160;&#160;&#160;&#160;&#160;&#160;- "aspire"</p>
+<p class="yaml">&#160;&#160;&#160;&#160;restart: "always"</p>
+<p class="yaml">&#160;&#160;<span class="k">cache:</span></p>
+<p class="yaml">&#160;&#160;&#160;&#160;image: "docker.io/library/redis:8.6"</p>
+<p class="yaml">&#160;&#160;&#160;&#160;command:</p>
+<p class="yaml">&#160;&#160;&#160;&#160;&#160;&#160;- "-c"</p>
+<p class="yaml">&#160;&#160;&#160;&#160;&#160;&#160;- "redis-server --requirepass $$REDIS_PASSWORD \"$@\""</p>
+<p class="yaml">&#160;&#160;&#160;&#160;&#160;&#160;- "redis-server"</p>
+<p class="yaml">&#160;&#160;&#160;&#160;entrypoint:</p>
+<p class="yaml">&#160;&#160;&#160;&#160;&#160;&#160;- "/bin/sh"</p>
+<p class="yaml">&#160;&#160;&#160;&#160;environment:</p>
+<p class="yaml">&#160;&#160;&#160;&#160;&#160;&#160;REDIS_PASSWORD: "${CACHE_PASSWORD}"</p>
+<p class="yaml">&#160;&#160;&#160;&#160;&#160;&#160;ENV_VAR: "envvar"</p>
+<p class="yaml">&#160;&#160;&#160;&#160;expose:</p>
+</div>
+<div class="yaml-col" style="flex:1">
+<p class="yaml">&#160;&#160;&#160;&#160;&#160;&#160;- "6379"</p>
+<p class="yaml">&#160;&#160;&#160;&#160;networks:</p>
+<p class="yaml">&#160;&#160;&#160;&#160;&#160;&#160;- "aspire"</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;<span class="k">frontend:</span></p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;image: "${FRONTEND_IMAGE}"</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;environment:</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;&#160;&#160;NODE_ENV: "production"</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;&#160;&#160;PORT: "5000"</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;&#160;&#160;ConnectionStrings__cache: "cache:6379,password=${CACHE_PASSWORD}"</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;&#160;&#160;CACHE_HOST: "cache"</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;&#160;&#160;CACHE_PORT: "6379"</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;&#160;&#160;CACHE_PASSWORD: "${CACHE_PASSWORD}"</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;&#160;&#160;CACHE_URI: "redis://:${CACHE_PASSWORD}@cache:6379"</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;&#160;&#160;YARP_ENABLE_STATIC_FILES: "true"</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;&#160;&#160;OTEL_EXPORTER_OTLP_ENDPOINT: "http://compose-dashboard:18889"</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;&#160;&#160;OTEL_EXPORTER_OTLP_PROTOCOL: "grpc"</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;&#160;&#160;OTEL_SERVICE_NAME: "frontend"</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;expose:</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;&#160;&#160;- "5000"</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;networks:</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;&#160;&#160;- "aspire"</p>
+<p class="yaml fe fragment" data-fragment-index="1">&#160;&#160;&#160;&#160;restart: "always"</p>
+<p class="yaml"><span class="k">networks:</span></p>
+<p class="yaml">&#160;&#160;<span class="k">aspire:</span></p>
+<p class="yaml">&#160;&#160;&#160;&#160;driver: "bridge"</p>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">Opens on a docker-compose.yaml. This is what your agent usually has to scrub through to figure out what happens when you run docker compose up: images, entrypoints, passwords, ports, connection strings, OpenTelemetry wiring, networks. Click 1: the frontend block highlights and the pill appears. In Compose the frontend is forced into a container, so no hot reload and no debugger. Click 2: flip to the AppHost that generated this exact file. (This YAML is real output of aspire publish from this AppHost, Aspire 17.1 preview. Redis Commander is dev-only, so it doesn’t appear in the Compose output.) Then it builds on click. Click 3: withEnvironment, which works on every resource (white methods). Click 4: withRedisCommander, from the Redis integration (pink). Click 5: the Vite frontend from the JavaScript integration (cyan). Click 6: withReference(cache), which is where all those CACHE_ variables and the connection string came from. Click 7: withYarn. Click 8: publishAsStaticWebsite, how the frontend ships. Click 9: everything from the Docker integration (amber) at once: the Compose environment and publishAsDockerComposeService. The app is fully defined first; deployment is layered on at the end. Aspire’s defaults give you that whole file, and you can still customize what gets generated, here a restart policy. Locally, aspire run keeps the frontend as a Vite dev server with hot reload and debugging. For an agent, this file is the topology: what exists, what depends on what, and where connection info flows.</aside>
+</section>
+<section id="aspireify" data-transition="fade">
+<div class="slide m">
+<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<h2 class="title">Aspireify your stack</h2>
+<div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:32px">
+<div class="card rise" style="--i:0"><div class="tile"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg></div><h3 class="card-title">Add an AppHost</h3><p class="copy">It sits beside your services and describes how they run and connect.</p></div>
+<div class="card rise" style="--i:1"><div class="tile"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg></div><h3 class="card-title">Keep your code as it is</h3><p class="copy">Your services, languages and frameworks stay exactly where they are.</p></div>
+<div class="card rise" style="--i:2"><div class="tile"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></svg></div><h3 class="card-title">Deploy your way</h3><p class="copy">Let Aspire deploy it, or keep shipping exactly the way you do today.</p></div>
+</div>
+<p class="chip">&gt; aspire init</p>
+</div>
+<aside class="notes">The part people don’t expect: you don’t rewrite anything. Aspireifying means adding an AppHost next to the app you already have. Your services keep their code. And it doesn’t have to touch deployment: use Aspire to deploy if you want, or keep your existing pipeline. What changes is that your coding agent now has a structured, always-current description of the whole app.</aside>
+</section>
+<section id="legend" data-transition="fade">
+<div class="slide m">
+<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<h2 class="title">Aspire as your agent's map</h2>
+<div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:32px">
+<div class="card rise" style="--i:0"><div class="tile"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg></div><p class="ey">AppHost + INTEGRATIONS</p><h3 class="card-title">Topology</h3><p class="copy">Every service, resource and reference, declared in one place.</p></div>
+<div class="card rise" style="--i:1"><div class="tile"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3" /></svg></div><p class="ey">LIFECYCLE COMMANDS</p><h3 class="card-title">Directions</h3><p class="copy">One command to start, stop and restart the whole stack.</p></div>
+<div class="card rise" style="--i:2"><div class="tile"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg></div><p class="ey">OBSERVABILITY</p><h3 class="card-title">Live traffic</h3><p class="copy">Logs, traces and health, filtered small enough to fit in context.</p></div>
+</div>
+</div>
+<aside class="notes">Three things a good map gives you, and three things Aspire gives your agent. Topology: the AppHost. Directions: the CLI, which runs and tracks everything with one command. Live traffic: the same resources, logs and traces you see in the dashboard — filtered and token-efficient, so the agent observes instead of guessing.</aside>
+</section>
+<section id="otel" data-transition="fade">
+<div class="slide m">
+<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<h2 class="title">OpenTelemetry made easy</h2>
+<div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:32px">
+<div class="card rise" style="--i:0"><div class="tile"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg></div><h3 class="card-title">Works in any language</h3><p class="copy">Aspire injects the OpenTelemetry settings every resource needs, like its OTLP endpoint and service name.</p><p class="chip" style="font-size:26px">OTEL_EXPORTER_OTLP_ENDPOINT</p></div>
+<div class="card rise" style="--i:1"><div class="tile"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg></div><h3 class="card-title">Using .NET? Even easier</h3><p class="copy">Service defaults wire up logs, traces and metrics, plus health checks and resilience, in one call.</p><p class="chip" style="font-size:26px">builder.AddServiceDefaults();</p></div>
+</div>
+<div class="rise" style="--i:2; display:flex; gap:24px; align-items:center"><div class="tile" style="flex:none"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg></div><p class="lead"><b class="ink">Don’t have OTel? Ask your agent!</b> Aspire’s skills know the setup for each stack.</p></div>
+</div>
+<aside class="notes">The agent can only see what your app reports, so telemetry is part of the setup. OpenTelemetry works in any language: Aspire injects the right settings into every resource, like the OTLP endpoint for the dashboard and the service name, so you just point the OpenTelemetry SDK at them. Fun fact: if you’re on .NET it’s even easier. The service defaults project wires up logs, traces and metrics, plus health checks and resilience, with one call. The practical advice either way: don’t hand-write it. Ask your agent to do it in one shot; with Aspire’s skills it gets it right.</aside>
+</section>
+<section id="loop" data-transition="fade">
+<div class="slide m">
+<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<h2 class="title">The agent inner loop</h2>
+<div style="position:relative; width:1632px; height:560px">
+<div class="loop-layer swap-out fragment" data-fragment-index="1" style="gap:24px">
+<p class="loop-label" style="color:#9c97b8">Without Aspire</p>
+<div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px">
+<div class="step dim mini rise" style="--i:0"><div class="mini-head"><p class="step-n">1</p><h3 class="step-title">Grep for a README</h3></div><p class="step-copy">Work out how this thing is supposed to run</p></div>
+<div class="step dim mini rise" style="--i:1"><div class="mini-head"><p class="step-n">2</p><h3 class="step-title">Guess the start command</h3></div><p class="step-copy">npm start? dotnet run? docker compose up?</p></div>
+<div class="step dim mini rise" style="--i:2"><div class="mini-head"><p class="step-n">3</p><h3 class="step-title">Hunt for env vars</h3></div><p class="step-copy">Copy secrets from a teammate’s .env file</p></div>
+<div class="step dim mini rise" style="--i:3"><div class="mini-head"><p class="step-n">4</p><h3 class="step-title">Fight a port conflict</h3></div><p class="step-copy">Something is already running on port 5000</p></div>
+<div class="step dim mini rise" style="--i:4"><div class="mini-head"><p class="step-n">5</p><h3 class="step-title">Start services one by one</h3></div><p class="step-copy">In the right order, hopefully</p></div>
+<div class="step dim mini rise" style="--i:5"><div class="mini-head"><p class="step-n">6</p><h3 class="step-title">Change code</h3></div><p class="step-copy">Without seeing the rest of the system</p></div>
+<div class="step dim mini rise" style="--i:6"><div class="mini-head"><p class="step-n">7</p><h3 class="step-title">Ask you what broke</h3></div><p class="step-copy">You paste logs and screenshots into the chat</p></div>
+<div class="step dim mini rise" style="--i:7"><div class="mini-head"><p class="step-n">8</p><h3 class="step-title">Update the Markdown</h3></div><p class="step-copy">So next time it knows. It won’t.</p></div>
+</div>
+<p class="chip" style="font-family:'Poppins', Arial, sans-serif; font-weight:500; color:#9c97b8; background:rgba(156,151,184,0.12)">Back to step 1</p>
+</div>
+<div class="loop-layer swap-in fragment" data-fragment-index="1">
+<p class="loop-label" style="color:#ad92ff">With Aspire</p>
+<div style="display:flex; align-items:center; gap:20px">
+<div class="step"><p class="step-n">1</p><h3 class="step-mono">aspire start</h3><p class="step-copy">Run the whole app, then read the AppHost to learn its topology</p></div>
+<svg style="width:40px; height:22px; flex:none" viewBox="0 0 40 22" aria-hidden="true"><path d="M0 6h24V0l16 11-16 11v-6H0z" fill="#7455dd"/></svg>
+<div class="step"><p class="step-n">2</p><h3 class="step-title">Change code</h3><p class="step-copy">Edit code, or add a resource or integration</p></div>
+<svg style="width:40px; height:22px; flex:none" viewBox="0 0 40 22" aria-hidden="true"><path d="M0 6h24V0l16 11-16 11v-6H0z" fill="#7455dd"/></svg>
+<div class="step"><p class="step-n">3</p><h3 class="step-title">Operate</h3><p class="step-copy">Test user flows and run custom commands</p></div>
+<svg style="width:40px; height:22px; flex:none" viewBox="0 0 40 22" aria-hidden="true"><path d="M0 6h24V0l16 11-16 11v-6H0z" fill="#7455dd"/></svg>
+<div class="step"><p class="step-n">4</p><h3 class="step-title">Inspect + verify</h3><p class="step-copy">Check logs, traces and health</p></div>
+</div>
+<p class="chip" style="font-family:'Poppins', Arial, sans-serif; font-weight:500">Back to step 2 until the behavior is verified, not just healthy</p>
+</div>
+</div>
+</div>
+<aside class="notes">Opens on the loop without Aspire, and it’s miserable. The agent greps for a README, guesses the start command, hunts for env vars, fights a port conflict, starts services one at a time and hopes the order is right. Then it finally changes code without seeing the rest of the system, asks you what broke, and updates a Markdown file so it knows next time. It won’t. Back to step 1. Click: the same loop with Aspire, down to four steps. Step 1 is aspire start: the agent doesn’t need to read or change anything to run the whole app, then it reads the AppHost to learn the topology. Change code. Operate: exercise user flows and run Aspire custom commands; Playwright MCP is a good example for driving the browser. Inspect and verify: logs, traces and resource health from the CLI. Loop back to step 2 until the intended behavior is verified, not just until the stack is green.</aside>
+</section>
+<section id="deploy" data-transition="fade">
+<div class="slide m">
+<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<h2 class="title">One app model, from local to deployed</h2>
+<div class="rise" style="--i:0; position:relative; width:1632px; height:380px">
+<div class="card" style="position:absolute; left:0px; top:100px; width:420px; height:180px; box-sizing:border-box; padding:32px 36px; gap:12px; justify-content:center">
+<p class="code-file" style="color:#c3adff">apphost.ts</p>
+<p style="font-size:36px; font-weight:600; line-height:1.15">One app model</p>
+</div>
+<svg style="position:absolute; left:0px; top:0px; width:1632px; height:380px; overflow:visible" viewBox="0 0 1632 380" aria-hidden="true"><defs><marker id="map-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7455dd"/></marker></defs><line x1="436" y1="190" x2="704" y2="54" stroke="#7455dd" stroke-width="3" marker-end="url(#map-arrow)"/><line x1="436" y1="190" x2="704" y2="190" stroke="#7455dd" stroke-width="3" marker-end="url(#map-arrow)"/><line x1="436" y1="190" x2="704" y2="326" stroke="#7455dd" stroke-width="3" marker-end="url(#map-arrow)"/></svg>
+
+
+<div class="lane" style="top:0px"><div class="tile" style="width:64px; height:64px; border-radius:18px; flex:none"><svg class="ic" style="width:32px; height:32px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></div><p class="lane-title">Local</p><p class="step-copy">Dev servers, hot reload and the dashboard</p></div>
+<div class="lane" style="top:136px"><div class="tile" style="width:64px; height:64px; border-radius:18px; flex:none"><svg class="ic" style="width:32px; height:32px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></svg></div><p class="lane-title">Staging</p><p class="step-copy">Your agent can stand up test environments</p></div>
+<div class="lane" style="top:272px"><div class="tile" style="width:64px; height:64px; border-radius:18px; flex:none"><svg class="ic" style="width:32px; height:32px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg></div><p class="lane-title">Production</p><p class="step-copy">The topology your agent already read locally</p></div>
+</div>
+<div class="rise" style="--i:3; display:flex; gap:28px; align-items:flex-start; padding-left:28px; border-left:4px solid #7455dd">
+<div style="display:flex; flex-direction:column; gap:10px">
+<p class="quote">“A Log Analytics workspace blew up. My agent worked out why from the AppHost alone, then confirmed it in Azure.”</p>
+<p class="subtle">Maddy, on Bingo</p>
+</div>
+</div>
+</div>
+<aside class="notes">If you choose to deploy with Aspire, local and deployed share one app model. Locally you get dev servers with hot reload and the dashboard. Your agent can stand up test and staging environments from the same AppHost. And production has the topology your agent already read locally. Story: Bingo. A Log Analytics workspace blew up. In my local repo I asked the agent what happened. Without connecting to Azure, it worked out the likely cause from the AppHost alone, then cross-referenced with Azure to confirm, because it’s the same model.</aside>
+</section>
+<section id="eyes" data-transition="fade">
+<div class="slide m">
+<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<div style="display:flex; flex-direction:column; gap:16px">
+<h2 class="title">We built our CLI for agents</h2>
+<p class="lead">It’s your agent’s interface to everything you can do and see.</p>
+</div>
+<div style="display:flex; flex-direction:column">
+<div class="row" style="align-items:center; padding:14px 0"><p class="chip" style="width:470px">aspire agent init</p><p class="copy">Sets up Aspire’s skills and MCP for your coding agent.</p></div>
+<div class="row" style="align-items:center; padding:14px 0"><p class="chip" style="width:470px">aspire start</p><p class="copy">Runs the whole app in the background, tracked and restartable.</p></div>
+<div class="row" style="align-items:center; padding:14px 0"><p class="chip" style="width:470px">aspire start --isolated</p><p class="copy">A separate instance per worktree, with no port conflicts.</p></div>
+<div class="row" style="align-items:center; padding:14px 0"><p class="chip" style="width:470px">aspire logs</p><p class="copy">Resource logs, filtered to what the task needs.</p></div>
+<div class="row" style="align-items:center; padding:14px 0"><p class="chip" style="width:470px">aspire otel</p><p class="copy">OpenTelemetry traces and spans, from the terminal.</p></div>
+<div class="row" style="align-items:center; padding:14px 0; border-bottom:1px solid rgba(195,173,255,0.22)"><p class="chip" style="width:470px">aspire docs</p><p class="copy">The highest-confidence docs articles for the task.</p></div>
+</div>
+</div>
+<aside class="notes">The dashboard is how you see the app. The CLI is the same information, codified for an agent: structured, filtered and small enough to fit in context. aspire agent init sets up skills and MCP. aspire start runs everything; add --isolated when agents work in parallel worktrees so instances don’t fight over ports. aspire logs and aspire otel give it what you’d see in the dashboard, and aspire docs finds the right documentation.</aside>
+</section>
+<section id="demo" data-transition="fade">
+<div class="slide m" style="justify-content:center; padding:128px 144px; gap:32px">
+<img src="../shared/img/deck-bg-cubes.png" alt="" style="position:absolute; left:1280px; top:0px; width:640px; height:1080px; object-fit:cover">
+<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<div style="display:flex; align-items:center; gap:24px"><p class="num">01</p><p class="ey" style="color:#9c97b8">Demo</p></div>
+<h2 style="font-size:120px; font-weight:600; letter-spacing:-4px; line-height:1.02; width:1040px">Hand your agent the map</h2>
+<p class="chip">&gt; aspire agent init</p>
+</div>
+<aside class="notes">Demo flow: start with [demo app], an existing app. Bring it into Aspire and run aspire agent init to set up skills and MCP. Give the agent a concrete task, then narrate as it reads the AppHost, runs the stack with aspire start, exercises the app and checks logs, traces and health. The win: the agent verifies its own work, and you review the result.</aside>
+</section>
+<section id="recap" data-transition="fade">
+<div class="slide m">
+<img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
+<h2 class="title">Take the map with you</h2>
+<div style="display:flex; flex-direction:column">
+<div class="row"><p class="num">01</p><p class="lead"><b class="ink">Agents get lost in what they can’t see.</b> Give them the system, not just the files.</p></div>
+<div class="row"><p class="num">02</p><p class="lead"><b class="ink">The AppHost is a map they can read.</b> The CLI and dashboard are how they navigate it.</p></div>
+<div class="row" style="border-bottom:1px solid rgba(195,173,255,0.22)"><p class="num">03</p><p class="lead"><b class="ink">Start today.</b> Aspireify your app with no code changes, run aspire agent init, and give your agent a real task.</p></div>
+</div>
+<div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:20px 48px">
+<div style="display:flex; align-items:center; gap:16px"><svg class="ic" style="width:28px; height:28px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg><p class="subtle"><a href="https://aspire.dev" class="hi">aspire.dev</a> · docs and get started</p></div>
+<div style="display:flex; align-items:center; gap:16px"><svg class="ic" style="width:28px; height:28px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg><p class="subtle"><a href="https://github.com/maddymontaquila/ndc-porto-2026" class="hi">github.com/maddymontaquila/ndc-porto-2026</a> · this talk’s slides and demos</p></div>
+<div style="display:flex; align-items:center; gap:16px"><svg class="ic" style="width:28px; height:28px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg><p class="subtle"><a href="https://github.com/microsoft/aspire" class="hi">github.com/microsoft/aspire</a> · star it, file issues</p></div>
+<div style="display:flex; align-items:center; gap:16px"><svg class="ic" style="width:28px; height:28px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg><p class="subtle"><a href="https://aka.ms/aspire-discord" class="hi">aka.ms/aspire-discord</a> · join the community</p></div>
+</div>
+</div>
+<aside class="notes">Three things to remember. No more copy-pasting logs, running pieces in isolation, or babysitting Markdown files. If you do one thing this week: Aspireify an app, run aspire agent init, and give your coding agent a real task. Watch what changes when it can observe instead of guess. Links on screen: aspire.dev for docs, this talk’s repo with the slides and demos, the Aspire repo on GitHub, and the Discord.</aside>
+</section>
+<section id="closing" data-transition="fade">
+<div class="slide m vivid" style="justify-content:center; align-items:center; padding:128px 144px; gap:48px">
+<div class="orbit" style="left:360px; top:250px; width:1200px; height:580px; transform:rotate(12deg); border-radius:50%"></div>
+<div class="orbit" style="left:500px; top:330px; width:920px; height:420px; transform:rotate(-14deg); border-radius:50%"></div>
+<h2 style="font-size:160px; font-weight:600; letter-spacing:-5px; line-height:1; text-align:center">Thank you</h2>
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="width:308px; height:76px; object-fit:contain">
+<p style="font-size:32px; color:#efeaff; text-align:center">aspire.dev · @maddymontaquila · @adamint</p>
+</div>
+<aside class="notes">Thanks! Point people to aspire.dev, and take questions.</aside>
+</section>
+</div>
+</div>
+<script type="module" src="./map.js"></script>
+</body>
+</html>
