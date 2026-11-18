@@ -5,11 +5,17 @@ import { createBuilder } from './.aspire/modules/aspire.mjs';
 
 const builder = await createBuilder();
 
-await builder.addViteApp('agent-session', '.', { runScriptName: 'slides:start' })
+// One Vite dev server hosts every deck; the dashboard links straight to each one.
+await builder.addViteApp('slides', '.', { runScriptName: 'slides:start' })
     .withNpm({ install: false })
     .withUrlForEndpoint('http', async url => {
-        url.url = '/agents/';
-        url.displayText = 'Agent session';
+        url.displayText = 'All decks';
+    })
+    .withUrls(async context => {
+        const http = context.getEndpoint('http');
+        const urls = context.urls();
+        await urls.addForEndpoint(http, '/map/', { displayText: 'NDC Porto: Aspire is the map' });
+        await urls.addForEndpoint(http, '/agents/', { displayText: 'Techorama: Use agents to build agents' });
     });
 
 await builder.build().run();
