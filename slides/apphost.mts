@@ -15,8 +15,7 @@ await builder.addViteApp('slides', '.', { runScriptName: 'slides:start' })
     .withUrls(async context => {
         const http = context.getEndpoint('http');
         const urls = context.urls();
-        await urls.addForEndpoint(http, '/map/', { displayText: 'Aspire is the map (map)' });
-        await urls.addForEndpoint(http, '/coding-agent-map/', { displayText: 'Aspire is the map (coding-agent-map)' });
+        await urls.addForEndpoint(http, '/map/', { displayText: 'Aspire is the map your coding agent is missing' });
         await urls.addForEndpoint(http, '/agents/', { displayText: 'Use agents to build agents' });
     });
 

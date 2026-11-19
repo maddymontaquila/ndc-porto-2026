@@ -5,14 +5,13 @@ Slides for NDC Porto 2026, featuring Aspire teammates. Built with [Reveal.js](ht
 | Deck | Folder |
 | --- | --- |
 | Use agents to build agents with Aspire + Microsoft Agent Framework | `agents/` |
-| Aspire is the map your coding agent is missing | `coding-agent-map/` |
 | Aspire is the map your coding agent is missing | `map/` |
 
 Reveal.js is npm-managed; Poppins and Fira Code fonts, images and inline Lucide SVGs are local. The production build bundles everything needed to present without internet access. Resource links still need a connection.
 
-The agents and coding-agent-map decks begin with editable NDC Porto 2026 opener and title slides, followed by their speaker slides. Event and presenter details remain editable HTML. These decks use one-based numeric URLs (`#/1`, `#/2`, etc.) that automatically follow slide order.
+The session decks begin with editable NDC Porto 2026 opener and title slides, followed by their speaker slides. Event and presenter details remain editable HTML. Each deck uses one-based numeric URLs (`#/1`, `#/2`, etc.) that automatically follow slide order.
 
-The slides use local Poppins and Fira Code fonts. The agents deck includes its matching SpreaView session review QR image; the coding-agent-map deck closes with an editable thank-you slide.
+The slides use local Poppins and Fira Code fonts. The agents deck includes its matching SpreaView session review QR image; the map deck closes with an editable thank-you slide.
 
 ## Presenting
 
