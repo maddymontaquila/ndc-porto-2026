@@ -1,4 +1,4 @@
-# Agent guide: Techorama 2026 Aspire slides
+# Agent guide: NDC Porto 2026 Aspire slides
 
 Instructions for any coding agent (Copilot, Claude Code, Codex, Cursor…) editing the slides in this `slides/` folder. They apply only to the slides, not to the code samples elsewhere in the repo. Read this file and `docs/design-guidelines.md` before changing a slide, and start new slides from `templates/index.html`. All paths below are relative to `slides/`.
 
@@ -6,13 +6,14 @@ Instructions for any coding agent (Copilot, Claude Code, Codex, Cursor…) editi
 
 | Path | What it is |
 | --- | --- |
-| `agents/index.html` | "Use agents to build agents with Aspire + Microsoft Agent Framework", Wed 28 Oct, Room 12 |
+| `agents/index.html` | "Use agents to build agents with Aspire + Microsoft Agent Framework" |
+| `coding-agent-map/index.html` | "Aspire is the map your coding agent is missing" |
 | `templates/index.html` | A runnable gallery deck: one example of every slide layout, ready to copy |
 | `docs/design-guidelines.md` | Brand and layout rules (colors, type scale, spacing, components, voice) |
 | `docs/brand/tokens.json` | Aspire design system tokens (source of truth for colors and type) |
 | `shared/deck.js` | Shared Reveal.js initialization, npm imports, image previews and motion preferences |
 | `shared/` | Local fonts, images and `deck.css`, shared by every deck |
-| `index.html` | Landing page that links both decks |
+| `index.html` | Landing page for both session decks |
 
 This `slides/` folder owns the npm manifest, lockfile, Vite configuration and Aspire hosting. Run npm and Aspire commands here, not at the repository root. Build tooling and npm dependencies are allowed. Use the existing Vite multi-page build rather than copying library distributions into `shared/` or introducing a second build system. Keep dependency changes intentional and commit the lockfile with them.
 
@@ -43,10 +44,11 @@ Rules:
 - Every deck loads `<script type="module" src="../shared/deck.js"></script>`. Keep Reveal configuration and plugin imports there rather than repeating initialization per page.
 - Use native `.fragment` elements for deliberate, click-to-reveal builds. Group related arrows and content with the same `data-fragment-index`; keep the first comparison or process step visible on arrival. Avoid decorative autoplay, and preserve instant state changes for reduced-motion users.
 - For a dashboard image that needs an enlarged view, wrap its `<img>` in an accessible `<a href="..." data-preview-image aria-label="...">`. The shared setup resolves the preview URL from the bundled image. Escape returns to the slide.
-- Each talk starts with the Techorama opener, then its conference title, then the speaker slide (slides 1–3 in the agents deck; `#techorama`, `#cover` and `#speakers` in Aspireify). Use the original template artwork in `shared/img/techorama-*.png`; keep the session text editable in HTML. These two slides intentionally use the conference branding, not an Aspire logo overlay.
-- Conference titles use the template's local DS Wallau and Alegreya fonts; keep their license notices in `public/font-licenses/` with deployed builds. Closing slides use the matching session review image (`agents-review-qr.png` or `aspireify-review-qr.png`) at its original aspect ratio; do not substitute the other session's QR.
+- Keep dashboard visuals current with the release being presented. Clearly label editable dashboard mockups as illustrations, never screenshots.
+- Each talk starts with the NDC Porto opener, then its conference title, then the speaker slide. Keep the event mark and session text editable in HTML; do not use artwork or fonts from the previous event.
+- Slides use local Poppins and Fira Code fonts. Closing slides use the matching session review image at its original aspect ratio.
 - Every other slide shows the Aspire logo top-left at the same position, except where a template omits it.
-- The agents deck uses one-based positional URLs (`#/1`, `#/2`, etc.); leave its sections without `id`s so URLs automatically follow slide order. Aspireify and the template gallery use named slide `id`s (`#/my-slide`); keep those short, lowercase and unique, and do not rename existing ones.
+- Session decks use one-based positional URLs (`#/1`, `#/2`, etc.); leave their sections without `id`s so URLs automatically follow slide order. The template gallery uses named slide `id`s (`#/my-slide`); keep those short, lowercase and unique.
 - Speaker notes go in `<aside class="notes">`. Press `S` while presenting to see them.
 - Icons are inline Lucide SVGs (`viewBox="0 0 24 24"`, `stroke="currentColor"`, `stroke-width="1.8"`, no fill). Copy one from an existing slide, or take the path from the Lucide icon set. Never use emoji as icons.
 - Images live in `shared/img/` and are referenced as `../shared/img/<file>`.

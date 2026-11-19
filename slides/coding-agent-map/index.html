@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aspire is the map your coding agent is missing</title>
+<link rel="icon" type="image/svg+xml" href="../shared/img/aspire-favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="../shared/img/aspire-favicon.png">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<section data-transition="fade">
+<div class="slide conference-opener">
+<div class="conference-mark" role="img" aria-label="NDC Porto 2026">
+<span class="conference-mark-name">NDC</span>
+<span class="conference-mark-location">Porto · 2026</span>
+</div>
+</div>
+<aside class="notes">Conference opener. Leave this up while the audience arrives, then advance to the session title.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide conference-title">
+<div class="conference-title-content">
+<p class="conference-event">NDC Porto 2026</p>
+<h1>Aspire is the map your coding agent is missing</h1>
+<p class="conference-subtitle">A safe, structured way to work with your entire app</p>
+<p class="conference-presenters">Maddy Montaquila · Adam Ratzman</p>
+</div>
+</div>
+<aside class="notes">Use the session description as the promise: Aspire gives a coding agent structured context for the whole application, so you spend less time copying logs, isolating services and maintaining Markdown maps.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;padding:208px 128px 128px;display:flex;flex-direction:column;gap:64px">
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Who we are</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:128px">
+<div style="display:flex;align-items:center;gap:40px">
+<img src="../shared/img/maddy.png" alt="Maddy Montaquila" style="width:240px;height:240px;object-fit:cover;border-radius:32px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:44px;font-weight:600">Maddy Montaquila</h3>
+<p style="font-size:30px;line-height:1.4;color:#cdc7e8">Aspire PM</p>
+<p style="font-family:'Fira Code','Courier New',monospace;font-size:26px;color:#c3adff">@maddymontaquila</p>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:40px">
+<img src="../shared/img/adam-ratzman.png" alt="Adam Ratzman" style="width:240px;height:240px;object-fit:cover;border-radius:32px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:44px;font-weight:600">Adam Ratzman</h3>
+<p style="font-size:30px;line-height:1.4;color:#cdc7e8">Senior software engineer,<br>Aspire team</p>
+<p style="font-family:'Fira Code','Courier New',monospace;font-size:26px;color:#c3adff">@adamint</p>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">Introduce yourselves briefly.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:#0f0d1d;color:#f6f3ff;padding:208px 128px 128px;display:flex;flex-direction:column;gap:56px">
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<p style="font-family:'Fira Code','Courier New',monospace;font-size:24px;font-weight:600;letter-spacing:3px;color:#c3adff;text-transform:uppercase">The gap</p>
+<h1 style="font-size:88px;font-weight:600;letter-spacing:-3px;line-height:1.12;width:1500px">Your agent can read the repo.<br>Can it see the app?</h1>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1">
+<div style="display:flex;flex-direction:column;gap:24px;padding:40px;border-radius:28px;background:rgba(255,255,255,.04);border:1px solid rgba(195,173,255,.22)">
+<p style="font-family:'Fira Code','Courier New',monospace;font-size:24px;letter-spacing:2px;color:#9c97b8">SOURCE</p>
+<h3 style="font-size:40px">Files and instructions</h3>
+<p style="font-size:30px;line-height:1.45;color:#cdc7e8">Useful context about code. Not the live shape and behavior of a distributed app.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px;padding:40px;border-radius:28px;background:#512bd4;border:1px solid #7455dd">
+<p style="font-family:'Fira Code','Courier New',monospace;font-size:24px;letter-spacing:2px;color:#dcd5f6">RUNNING APP</p>
+<h3 style="font-size:40px">Resources and relationships</h3>
+<p style="font-size:30px;line-height:1.45;color:#f6f3ff">The services, dependencies and signals you need to understand the whole system.</p>
+</div>
+</div>
+</div>
+<aside class="notes">Make the distinction carefully: repository instructions help, but they are a manually maintained description. The running app has its own topology and behavior. Today is about giving the coding agent a structured path to that context.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;padding:208px 128px 128px;display:flex;flex-direction:column;gap:64px">
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Copy-paste is not a workflow</h2>
+<div style="display:flex;align-items:center;gap:24px;flex:1">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;padding:36px;border-radius:28px;background:rgba(255,255,255,.04);border:1px solid rgba(195,173,255,.22)">
+<p style="font-family:'Fira Code','Courier New',monospace;font-size:24px;color:#9c97b8">WITHOUT THE APP MAP</p>
+<p style="font-size:30px;line-height:1.45;color:#cdc7e8">Find a service. Start it alone. Copy logs. Explain what you already know. Repeat.</p>
+</div>
+<div style="font-size:44px;color:#c3adff" aria-hidden="true">&rarr;</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;padding:36px;border-radius:28px;background:#512bd4;border:1px solid #7455dd">
+<p style="font-family:'Fira Code','Courier New',monospace;font-size:24px;color:#dcd5f6">WITH ASPIRE</p>
+<p style="font-size:30px;line-height:1.45;color:#f6f3ff">Work against the app model, run the stack, and inspect what actually happened.</p>
+</div>
+</div>
+<p style="font-size:30px;line-height:1.4;color:#cdc7e8">Less context wrangling. More time on the change you meant to make.</p>
+</div>
+<aside class="notes">This is the pain from the session abstract. Acknowledge that you can still inspect an individual service when that is the right thing to do. Aspire makes the whole app available as the context, rather than forcing you to reconstruct it manually.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:#0f0d1d;color:#f6f3ff;padding:208px 128px 128px;display:flex;flex-direction:column;gap:48px">
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Aspire is the map</h2>
+<p style="font-size:32px;line-height:1.4;color:#cdc7e8">An app model connects the pieces you run and the relationships between them.</p>
+<div class="resource-map-flow" role="img" aria-label="Illustrative app map: web frontend calls API, which uses Redis and PostgreSQL">
+<div class="resource-map-node"><small>APP</small><strong>Web</strong><span>Frontend</span></div>
+<div class="resource-map-arrow" aria-hidden="true">&rarr;</div>
+<div class="resource-map-node resource-map-primary"><small>APP</small><strong>API</strong><span>Service</span></div>
+<div class="resource-map-arrow" aria-hidden="true">&rarr;</div>
+<div class="resource-map-node"><small>DATA</small><strong>Redis</strong><span>Cache</span></div>
+<div class="resource-map-node"><small>DATA</small><strong>PostgreSQL</strong><span>Database</span></div>
+</div>
+<p class="map-caption">Illustrative topology · Your AppHost describes your app’s resources and references</p>
+</div>
+<aside class="notes">Use this deliberately simple, illustrative topology: web calls the API, with Redis and PostgreSQL shown as separate app resources. The AppHost is the code-first model, not a hand-maintained architecture picture. Aspire uses the model to orchestrate resources and their references, and the CLI and dashboard make that application context inspectable.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;padding:208px 128px 128px;display:flex;flex-direction:column;gap:48px">
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<p style="font-family:'Fira Code','Courier New',monospace;font-size:24px;font-weight:600;letter-spacing:3px;color:#c3adff;text-transform:uppercase">Aspire 17</p>
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Resources first</h2>
+<div class="dashboard-illustration" aria-label="Illustration of the Aspire 17 resource-first dashboard, not a screenshot">
+<div class="dashboard-sidebar">
+<b>APP</b><span class="is-selected">Resources</span><span>Graph</span><span>Logs</span><span>Traces</span><span>Metrics</span><span>Terminals</span>
+</div>
+<div class="dashboard-content">
+<div class="dashboard-heading"><strong>All resources</strong><span>Search resources&nbsp;&nbsp;&nbsp; Filter</span></div>
+<div class="dashboard-table-head"><span>Resource</span><span>Type</span><span>State</span><span>Signals</span></div>
+<div class="dashboard-row"><b>web</b><span>Project</span><em>Running</em><span>Requests</span></div>
+<div class="dashboard-row"><b>api</b><span>Project</span><em>Running</em><span>Logs · Traces</span></div>
+<div class="dashboard-row"><b>postgres</b><span>PostgreSQL Server</span><em>Running</em><span>Logs</span></div>
+<div class="dashboard-footer">Select a resource to keep its details in view as you investigate.</div>
+</div>
+</div>
+<p class="map-caption">Editable illustration of Aspire 17.0 · Not a product screenshot</p>
+<div style="display:flex;gap:32px">
+<p style="font-size:28px;line-height:1.45;color:#cdc7e8">Keep the system in view as you search, filter and investigate resources and telemetry.</p>
+</div>
+</div>
+<aside class="notes">Aspire 17.0 is a current release detail: the dashboard is resource-first, with a resource table home page and a shared resource pane across logs, traces and metrics. The illustration is intentionally not a screenshot. For the live demo, use the actual 17.0 dashboard.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:#0f0d1d;color:#f6f3ff;padding:208px 128px 128px;display:flex;flex-direction:column;gap:48px">
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Give the agent a shareable map</h2>
+<p style="font-size:32px;line-height:1.4;color:#cdc7e8">Aspire 17 can export the running resource graph as Mermaid.</p>
+<div style="padding:40px 48px;background:#221f3a;border:1px solid rgba(195,173,255,.22);border-radius:24px;font-family:'Fira Code','Courier New',monospace;font-size:32px;line-height:1.7;color:#f6f3ff">
+<p style="color:#9c97b8"># Export the app's resource graph</p>
+<p>aspire describe --format mermaid</p>
+</div>
+<div class="resource-map-flow compact" role="img" aria-label="Illustrative Mermaid graph: web points to API, API points to Redis and PostgreSQL">
+<div class="resource-map-node"><small>APP</small><strong>web</strong></div><div class="resource-map-arrow" aria-hidden="true">&rarr;</div>
+<div class="resource-map-node resource-map-primary"><small>APP</small><strong>api</strong></div><div class="resource-map-arrow" aria-hidden="true">&rarr;</div>
+<div class="resource-map-node"><small>DATA</small><strong>redis</strong></div><div class="resource-map-node"><small>DATA</small><strong>postgres</strong></div>
+</div>
+<p class="map-caption">Aspire CLI 17.0 · Diagram shown is illustrative; command output reflects your AppHost</p>
+</div>
+<aside class="notes">Run the exact command in the CLI for the demo. Mermaid export is a new Aspire 17.0 capability: it gives you a portable view of the resource graph without copying an architecture diagram into a Markdown file. The graph on this slide is illustrative, not command output.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;padding:208px 128px 128px;display:flex;flex-direction:column;gap:56px">
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">The map meets the evidence</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;flex:1">
+<div class="map-info-card"><span>01</span><h3>Resources</h3><p>What is running? What is healthy? Where is it reachable?</p></div>
+<div class="map-info-card"><span>02</span><h3>Logs and traces</h3><p>What happened across the services involved in a request?</p></div>
+<div class="map-info-card"><span>03</span><h3>Metrics</h3><p>What is changing over time? Where should you look closer?</p></div>
+</div>
+<p style="font-size:28px;line-height:1.45;color:#cdc7e8">The dashboard keeps resource context close while you investigate.</p>
+</div>
+<aside class="notes">Keep the point grounded: the app map tells you what the pieces are and how they relate. Logs, traces and metrics tell you what they are doing. Aspire 17's resource pane lets you keep the resources you are investigating in view as you navigate those signals.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:#0f0d1d;color:#f6f3ff;padding:208px 128px 128px;display:flex;flex-direction:column;gap:56px">
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">A useful agent loop</h2>
+<div class="agent-loop">
+<div><small>01</small><strong>Orient</strong><span>Read the app map</span></div>
+<div><small>02</small><strong>Act</strong><span>Make the requested change</span></div>
+<div><small>03</small><strong>Observe</strong><span>Run the app and inspect signals</span></div>
+<div><small>04</small><strong>Verify</strong><span>Test the intended behavior</span></div>
+</div>
+<p style="font-size:32px;line-height:1.45;color:#cdc7e8">Then loop again—with evidence, not a guess.</p>
+</div>
+<aside class="notes">The loop is the practical payoff. The agent learns the topology, makes a scoped change, operates the whole app and checks the result. The human still defines the task and decides whether the change is acceptable.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;padding:208px 128px 128px;display:flex;flex-direction:column;gap:48px">
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<p style="font-family:'Fira Code','Courier New',monospace;font-size:24px;font-weight:600;letter-spacing:3px;color:#c3adff;text-transform:uppercase">Illustrative example</p>
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">“Why did this request fail?”</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;flex:1">
+<div class="resource-map-flow vertical" role="img" aria-label="Illustrative request path from web to API to database">
+<div class="resource-map-node"><small>REQUEST</small><strong>web</strong></div>
+<div class="resource-map-arrow down" aria-hidden="true">&darr;</div>
+<div class="resource-map-node resource-map-primary"><small>SERVICE</small><strong>api</strong></div>
+<div class="resource-map-arrow down" aria-hidden="true">&darr;</div>
+<div class="resource-map-node"><small>DEPENDENCY</small><strong>database</strong></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<p style="font-size:30px;line-height:1.45;color:#cdc7e8">Follow the app model to the involved resources.</p>
+<p style="font-size:30px;line-height:1.45;color:#cdc7e8">Inspect the request trace and relevant logs.</p>
+<p style="font-size:30px;line-height:1.45;color:#cdc7e8">Change, rerun and verify the same path.</p>
+</div>
+</div>
+<p class="map-caption">A teaching example, not a claim about a specific application</p>
+</div>
+<aside class="notes">Walk through the reasoning, not a fabricated failure. Start from the request path, use the app model to identify services and dependencies, inspect the real trace and logs, then rerun the same user flow after the change.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:#0f0d1d;color:#f6f3ff;padding:208px 128px 128px;display:flex;flex-direction:column;gap:56px">
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Context is not control</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1">
+<div class="map-info-card"><span>GIVE CONTEXT</span><h3>App model + signals</h3><p>Let the agent understand resources, relationships and observed behavior.</p></div>
+<div class="map-info-card"><span>KEEP CONTROL</span><h3>Permissions + review</h3><p>Use your agent’s permissions, tests and human review to govern changes.</p></div>
+</div>
+<p style="font-size:30px;line-height:1.45;color:#cdc7e8">Structured access makes the work clearer. It does not replace your security model.</p>
+</div>
+<aside class="notes">Be explicit that Aspire context and tools are not a security boundary. Follow the agent platform’s permissions, protect secrets, review proposed edits, and decide which commands and actions are permitted.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;padding:208px 128px 128px;display:flex;flex-direction:column;gap:56px">
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">No Markdown map to babysit</h2>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;flex:1">
+<div class="map-info-card"><span>MODEL</span><h3>AppHost</h3><p>Describe resources and references in code.</p></div>
+<div class="map-info-card"><span>RUNTIME</span><h3>Aspire</h3><p>Run the app as a connected system.</p></div>
+<div class="map-info-card"><span>OBSERVE</span><h3>Dashboard + CLI</h3><p>Inspect current resources and telemetry.</p></div>
+</div>
+<p style="font-size:30px;line-height:1.45;color:#cdc7e8">Keep architecture where it belongs: with the app, not in a second description of it.</p>
+</div>
+<aside class="notes">Avoid saying documentation has no value. The point is not to ban Markdown; it is to avoid relying on a hand-maintained file as the only description of a changing application. The AppHost is executable context, and the dashboard and CLI show live state.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:#0f0d1d;color:#f6f3ff;padding:208px 128px 128px;display:flex;flex-direction:column;gap:48px">
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Meet your existing stack</h2>
+<div style="display:flex;align-items:center;gap:32px;flex:1">
+<div style="flex:1;padding:48px;border-radius:32px;background:rgba(255,255,255,.04);border:1px solid rgba(195,173,255,.22)">
+<p style="font-family:'Fira Code','Courier New',monospace;font-size:24px;color:#c3adff">ADD ASPIRE</p>
+<h3 style="font-size:40px;margin-top:24px!important">Start with the app model</h3>
+<p style="font-size:28px;line-height:1.5;color:#cdc7e8;margin-top:20px!important">Bring orchestration and visibility around the stack you already have.</p>
+</div>
+<div style="font-size:48px;color:#c3adff" aria-hidden="true">+</div>
+<div style="flex:1;padding:48px;border-radius:32px;background:#512bd4;border:1px solid #7455dd">
+<p style="font-family:'Fira Code','Courier New',monospace;font-size:24px;color:#dcd5f6">ASPIREIFY</p>
+<h3 style="font-size:40px;margin-top:24px!important">Wire it for agents</h3>
+<p style="font-size:28px;line-height:1.5;color:#f6f3ff;margin-top:20px!important">Use guided workflows to connect your codebase and agent tooling.</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.45;color:#cdc7e8">The session promise: add Aspire to—or Aspireify—your stack without changing your app’s code.</p>
+</div>
+<aside class="notes">The abstract promises you can add Aspire to—or Aspireify—your stack without changing app code. Keep the demo honest: show the actual repo and ask before making any app-specific choices. Aspire init can scaffold support in an existing workspace; Aspireify is the guided agent workflow for wiring it to that codebase.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;padding:208px 128px 128px;display:flex;flex-direction:column;justify-content:center;gap:40px">
+<div class="ring" style="position:absolute;left:1240px;top:-180px;width:900px;height:900px;background:transparent;border:1px solid rgba(195,173,255,.22);border-radius:50%"></div>
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<p style="font-family:'Fira Code','Courier New',monospace;font-size:24px;font-weight:600;letter-spacing:3px;color:#c3adff">LIVE WALKTHROUGH</p>
+<h1 style="font-size:120px;font-weight:600;letter-spacing:-4px;line-height:1.05;width:1450px">Give the agent<br>the whole app</h1>
+<p style="font-size:34px;line-height:1.45;color:#cdc7e8;width:1320px">Map the resources. Run a real workflow. Inspect the evidence. Verify the change.</p>
+</div>
+<aside class="notes">Use a representative app and a small, verifiable task. Show the CLI and resource-first dashboard on the stable Aspire 17 CLI. Let the audience see the agent orient against the app, operate it, and verify a change. Do not rely on screenshots from older releases.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide" style="background:#0f0d1d;color:#f6f3ff;padding:208px 128px 128px;display:flex;flex-direction:column;gap:56px">
+<img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
+<h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">The map your agent was missing</h2>
+<div class="agent-loop compact">
+<div><small>01</small><strong>See the app</strong><span>Resources + references</span></div>
+<div><small>02</small><strong>Work together</strong><span>One connected system</span></div>
+<div><small>03</small><strong>Check the result</strong><span>Logs + traces + tests</span></div>
+</div>
+<p style="font-size:34px;line-height:1.45;color:#cdc7e8">Faster, more accurate agentic development—with less context to copy and maintain.</p>
+</div>
+<aside class="notes">Summarize with the session's promised outcomes. Invite questions. Aspire is the map and the tools; the coding agent still needs a clear task, appropriate permissions, and a verified result.</aside>
+</section>
+
+<section data-transition="fade">
+<div class="slide conference-title">
+<div class="conference-title-content">
+<p class="conference-event">NDC Porto 2026</p>
+<h1>Thank you</h1>
+<p class="conference-subtitle">Aspire is the map your coding agent is missing</p>
+<p class="conference-presenters">Maddy Montaquila · Adam Ratzman</p>
+</div>
+</div>
+<aside class="notes">Thank the audience and take questions.</aside>
+</section>
+
+</div>
+</div>
+<script type="module" src="../shared/deck.js"></script>
+</body>
+</html>

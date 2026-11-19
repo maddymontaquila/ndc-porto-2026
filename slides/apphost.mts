@@ -8,8 +8,8 @@ const builder = await createBuilder();
 await builder.addViteApp('agent-session', '.', { runScriptName: 'slides:start' })
     .withNpm({ install: false })
     .withUrlForEndpoint('http', async url => {
-        url.url = '/agents/';
-        url.displayText = 'Agent session';
+        url.url = '/';
+        url.displayText = 'NDC sessions';
     });
 
 await builder.build().run();

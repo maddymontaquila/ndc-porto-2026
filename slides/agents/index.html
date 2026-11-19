@@ -11,23 +11,25 @@
 <div class="reveal">
 <div class="slides">
 <section data-transition="fade">
-<div class="slide techorama-opener">
-<img class="techorama-opener-art" src="../shared/img/techorama-opener.png" alt="Hear ye, hear ye. Techorama Medieval Edition.">
+<div class="slide conference-opener">
+<div class="conference-mark" role="img" aria-label="NDC Porto 2026">
+<span class="conference-mark-name">NDC</span>
+<span class="conference-mark-location">Porto · 2026</span>
+</div>
 </div>
 <aside class="notes">Conference opener. Leave this up while the audience arrives, then advance to the session title.</aside>
 </section>
 
 <section data-transition="fade">
-<div class="slide techorama-title">
-<img class="techorama-logo" src="../shared/img/techorama-logo.png" alt="Techorama 2026 Medieval Edition">
-<div class="techorama-title-content">
+<div class="slide conference-title">
+<div class="conference-title-content">
+<p class="conference-event">NDC Porto 2026</p>
 <h1>Use agents to build agents</h1>
-<p class="techorama-subtitle">with Aspire + Microsoft Agent Framework</p>
-<p class="techorama-presenters">Maddy Montaquila · Tommaso Stocchi</p>
-<p class="techorama-session">Room 12 · Wed 28 Oct 2026</p>
+<p class="conference-subtitle">with Aspire + Microsoft Agent Framework</p>
+<p class="conference-presenters">Maddy Montaquila · Adam Ratzman</p>
 </div>
 </div>
-<aside class="notes">Techorama 2026 · Room 12 · Wed 28 Oct. Welcome! This one is the deeper, agent-focused follow-up to yesterday’s Aspireify session. Two halves: Use AI — letting a coding agent build and debug with Aspire giving it eyes. Build AI — an agentic app with Microsoft Agent Framework, orchestrated by Aspire. Explain the AppHost before the Agent Framework demo, then finish with resources and Q&amp;A; there is no separate deployment section.</aside>
+<aside class="notes">Welcome to NDC Porto. This talk has two halves: Use AI — letting a coding agent build and debug with Aspire giving it eyes. Build AI — an agentic app with Microsoft Agent Framework, orchestrated by Aspire. Explain the AppHost before the Agent Framework demo, then finish with resources and Q&amp;A; there is no separate deployment section.</aside>
 </section>
 
 <section data-transition="fade">
@@ -43,16 +45,16 @@
 </div>
 </div>
 <div class="speaker-profile">
-<img class="speaker-portrait" src="../shared/img/tommaso.png" alt="Tommaso Stocchi">
+<img class="speaker-portrait" src="../shared/img/adam-ratzman.png" alt="Adam Ratzman">
 <div class="speaker-bio">
-<h3>Tommaso Stocchi</h3>
-<p>Cloud Solution Architect,<br>Microsoft</p>
-<p class="speaker-handle">@tommasodotNET</p>
+<h3>Adam Ratzman</h3>
+<p>Senior software engineer,<br>Aspire team</p>
+<p class="speaker-handle">@adamint</p>
 </div>
 </div>
 </div>
 </div>
-<aside class="notes">Quick intros. If anyone was at yesterday’s Aspireify session, welcome back — today we skip most of the Aspire basics and go straight to agents.</aside>
+<aside class="notes">Quick introductions, then go straight to agents.</aside>
 </section>
 
 <section data-transition="fade">
@@ -218,7 +220,7 @@
 <svg class="fragment" data-fragment-index="4" aria-hidden="true" viewBox="0 0 1920 1080" style="position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none"><defs><marker id="m41442" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5 0 10z" fill="#7455dd"/></marker></defs><polyline points="611,884 611,842" fill="none" stroke="#7455dd" stroke-width="3" stroke-linejoin="round" marker-end="url(#m41442)"/></svg>
 <p class="fragment" data-fragment-index="4" style="position:absolute;left:660px;top:896px;width:960px;font-size:24px;color:#c3adff;text-align:center">Back to step 2 — repeat until the behavior is verified</p>
 </div>
-<aside class="notes">Tommaso’s slide. Read the AppHost to learn the topology, change code, then run everything with aspire start. Operate means exercising user flows and running Aspire custom commands; mention Playwright MCP as an example of driving the app in a browser. Inspect + verify closes the feedback loop: check logs, traces and resource health from the CLI, and use resource or interaction MCPs to inspect the results. Browser checks and telemetry complement each other. Loop back to step 2 until the intended behavior is verified, not just until the stack is healthy.</aside>
+<aside class="notes">Read the AppHost to learn the topology, change code, then run everything with aspire start. Operate means exercising user flows and running Aspire custom commands; mention Playwright MCP as an example of driving the app in a browser. Inspect + verify closes the feedback loop: check logs, traces and resource health from the CLI, and use resource or interaction MCPs to inspect the results. Browser checks and telemetry complement each other. Loop back to step 2 until the intended behavior is verified, not just until the stack is healthy.</aside>
 </section>
 
 <section data-transition="fade">
@@ -298,13 +300,10 @@
 
 <section data-transition="fade">
 <div class="slide" style="background:linear-gradient(160deg,#171b31 0%,#1b2140 55%,#213051 100%);color:#f6f3ff;font-family:'Poppins', Arial, sans-serif;padding:208px 128px 128px;display:flex;flex-direction:column;gap:56px">
-<a href="../shared/img/dashboard-13-6-dark.png" data-preview-image aria-label="Enlarge the Aspire 13.6 dashboard screenshot" style="position:absolute;left:952px;top:344px;width:840px;height:472.5px">
-<img src="../shared/img/dashboard-13-6-dark.png" alt="Aspire 13.6 dashboard showing structured logs and the run history selector" style="width:840px;height:472.5px;object-fit:contain;border-radius:24px;border:1px solid rgba(195,173,255,0.28);box-shadow:0 42px 120px rgba(7,4,24,0.6)">
-</a>
-<p style="position:absolute;left:952px;top:841px;font-size:24px;color:#c3adff">Aspire 13.6 · Select to enlarge · Esc to return</p>
 <img src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire" style="position:absolute;left:128px;top:80px;width:226px;height:56px;object-fit:contain">
 <h2 style="font-size:72px;font-weight:600;letter-spacing:-2px;line-height:1.08">Aspire for AI dev</h2>
-<div style="display:flex;flex-direction:column;gap:40px;width:740px">
+<div style="display:grid;grid-template-columns:740px 1fr;gap:40px;flex:1">
+<div style="display:flex;flex-direction:column;gap:40px">
 <div style="display:flex;gap:28px">
 <div style="width:72px;height:72px;border-radius:18px;background:rgba(195,173,255,0.12);display:flex;align-items:center;justify-content:center"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:#c3adff;width:40px;height:40px"><polygon points="6 3 20 12 6 21 6 3" /></svg></div>
 <div style="flex:1;display:flex;flex-direction:column;gap:8px"><h3 style="font-size:36px;font-weight:600">Local dev loop</h3><p style="font-size:28px;line-height:1.5;color:#cdc7e8">Run the full stack against local or provisioned models.</p></div>
@@ -318,8 +317,22 @@
 <div style="flex:1;display:flex;flex-direction:column;gap:8px"><h3 style="font-size:36px;font-weight:600">Deployment</h3><p style="font-size:28px;line-height:1.5;color:#cdc7e8">Your agent is just another service, container and endpoint.</p></div>
 </div>
 </div>
+<div style="display:flex;flex-direction:column;gap:16px;align-self:center">
+<div class="dashboard-illustration" aria-label="Illustration of the Aspire 17 resource-first dashboard, not a screenshot">
+<div class="dashboard-sidebar"><b>APP</b><span class="is-selected">Resources</span><span>Graph</span><span>Logs</span><span>Traces</span><span>Metrics</span></div>
+<div class="dashboard-content">
+<div class="dashboard-heading"><strong>All resources</strong><span>Search&nbsp;&nbsp; Filter</span></div>
+<div class="dashboard-table-head"><span>Resource</span><span>Type</span><span>State</span><span>Signals</span></div>
+<div class="dashboard-row"><b>web</b><span>Project</span><em>Running</em><span>Requests</span></div>
+<div class="dashboard-row"><b>agent</b><span>Project</span><em>Running</em><span>Logs · Traces</span></div>
+<div class="dashboard-row"><b>model</b><span>Endpoint</span><em>Running</em><span>Traces</span></div>
+<div class="dashboard-footer">Select a resource to investigate.</div>
 </div>
-<aside class="notes">Bridge from the coding-agent demo into the Build AI half: Aspire provides the local dev loop, observability and deployment model around AI apps. Locally: run the whole stack against a local or provisioned model. In the dashboard: inspect logs and traces; Agent Framework’s OpenTelemetry can show GenAI spans with prompts, tool calls and token counts. At deploy time, the agent is another resource in the AppHost. The screenshot is the official Aspire 13.6 structured-logs and run-history image, not a GenAI trace: https://aspire.dev/whats-new/aspire-13-6/ (run-history-dark). Show the actual agent telemetry in the Agent Framework demo.</aside>
+</div>
+<p class="map-caption">Editable Aspire 17.0 illustration · Not a screenshot</p>
+</div>
+</div>
+<aside class="notes">Bridge from the coding-agent demo into the Build AI half: Aspire provides the local dev loop, observability and deployment model around AI apps. Locally: run the whole stack against local or provisioned models. In the dashboard, inspect logs and traces; Agent Framework’s OpenTelemetry can show GenAI spans with prompts, tool calls and token counts. The right side is an editable illustration of Aspire 17's resource-first dashboard, not a screenshot. Show the actual current dashboard and GenAI telemetry in the live demo.</aside>
 </section>
 
 <section data-transition="fade">
@@ -396,7 +409,7 @@
 </div>
 <p style="font-size:26px;color:#9c97b8">The successor to Semantic Kernel and AutoGen, built by the same teams.</p>
 </div>
-<aside class="notes">Tommaso’s slide. Agent Framework is the “what goes inside the agent service” piece: one agent abstraction across model providers, graph-based multi-agent workflows (sequential, concurrent, handoff, group chat, Magentic-One), tool calling and MCP. 1.0 shipped in April 2026 for .NET and Python with stable APIs; Go is in preview. The bit that matters for us: it emits OpenTelemetry spans (invoke_agent, chat, execute_tool) and token-usage metrics using the GenAI semantic conventions — and its own docs recommend the Aspire dashboard for local dev. In Python instrumentation is on by default; in .NET you add UseOpenTelemetry().</aside>
+<aside class="notes">Agent Framework is the “what goes inside the agent service” piece: one agent abstraction across model providers, graph-based multi-agent workflows (sequential, concurrent, handoff, group chat, Magentic-One), tool calling and MCP. 1.0 shipped in April 2026 for .NET and Python with stable APIs; Go is in preview. The bit that matters for us: it emits OpenTelemetry spans (invoke_agent, chat, execute_tool) and token-usage metrics using the GenAI semantic conventions — and its own docs recommend the Aspire dashboard for local dev. In Python instrumentation is on by default; in .NET you add UseOpenTelemetry().</aside>
 </section>
 
 <section data-transition="fade">
@@ -430,7 +443,7 @@
 </div>
 <p style="font-size:30px;line-height:1.4;color:#c3adff">Connect with references, not hand-wired config — same path from local dev to deployment.</p>
 </div>
-<aside class="notes">Tommaso’s “Modeling an agentic app” points, merged here: an agent app is a distributed app, so declare each part as a resource — Agent Framework services, model endpoints, MCP servers and tools, plus a vector store or database and a frontend chat UI. Connect them with references, not hand-wired config: endpoints, connection strings and keys flow from the AppHost, and the same app model runs locally and drives deployment. The whole agentic app in a handful of lines: a model deployment, an Agent Framework service that references it, and a frontend that references the agent. Aspire injects the endpoint and credentials, so the agent code never hard-codes a key. CHECK BEFORE THE TALK: match this snippet to the exact APIs and languages in the demo repo.</aside>
+<aside class="notes">Modeling an agentic app: it is a distributed app, so declare each part as a resource — Agent Framework services, model endpoints, MCP servers and tools, plus a vector store or database and a frontend chat UI. Connect them with references, not hand-wired config: endpoints, connection strings and keys flow from the AppHost, and the same app model runs locally and drives deployment. The whole agentic app in a handful of lines: a model deployment, an Agent Framework service that references it, and a frontend that references the agent. Aspire injects the endpoint and credentials, so the agent code never hard-codes a key. CHECK BEFORE THE TALK: match this snippet to the exact APIs and languages in the demo repo.</aside>
 </section>
 
 <section data-transition="fade">
@@ -455,10 +468,10 @@
 <div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(195,173,255,0.22);padding:22px 0"><p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#c3adff">Integrations</p><p style="font-size:32px;font-weight:500"><a href="https://aspire.dev/integrations">aspire.dev/integrations</a></p></div>
 <div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(195,173,255,0.22);padding:22px 0"><p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#c3adff">Samples</p><p style="font-size:32px;font-weight:500"><a href="https://github.com/microsoft/aspire-samples">github.com/microsoft/aspire-samples</a></p></div>
 <div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(195,173,255,0.22);border-bottom:1px solid rgba(195,173,255,0.22);padding:22px 0"><p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#c3adff">Community</p><p style="font-size:32px;font-weight:500"><a href="https://aka.ms/aspire-discord">aka.ms/aspire-discord</a></p></div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(195,173,255,0.22);border-bottom:1px solid rgba(195,173,255,0.22);padding:22px 0"><p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#c3adff">Today’s demo</p><p style="font-size:32px;font-weight:500"><a href="https://aka.ms/aspire/techorama-2026">aka.ms/aspire/techorama-2026</a></p></div>
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(195,173,255,0.22);border-bottom:1px solid rgba(195,173,255,0.22);padding:22px 0"><p style="font-family:'Fira Code', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#c3adff">Today’s demos</p><p style="font-size:32px;font-weight:500"><a href="https://github.com/maddymontaquila/ndc-porto-2026">github.com/maddymontaquila/ndc-porto-2026</a></p></div>
 </div>
 </div>
-<aside class="notes">Leave this up during Q&amp;A. Agent skills is the one to try first — it’s what made demo 2 work. The Techorama short link goes to the homepage with both sessions’ demos — make sure it’s live before the talk.</aside>
+<aside class="notes">Leave this up during Q&amp;A. Agent skills is the one to try first — it’s what made demo 2 work.</aside>
 </section>
 
 <section data-transition="fade">
@@ -472,7 +485,6 @@
 <div class="closing-contact"><p class="closing-contact-label">Docs</p><p class="closing-contact-value">aspire.dev</p></div>
 <div class="closing-contact"><p class="closing-contact-label">Socials</p><p class="closing-contact-value">@aspiredotdev</p></div>
 <div class="closing-contact"><p class="closing-contact-label">Maddy</p><p class="closing-contact-value">@maddymontaquila</p></div>
-<div class="closing-contact"><p class="closing-contact-label">Tommaso</p><p class="closing-contact-value">@tommasodotNET</p></div>
 </div>
 <p class="closing-review-prompt">Scan to review this session.</p>
 </div>

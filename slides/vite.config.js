@@ -19,6 +19,7 @@ export default defineConfig({
       input: {
         index: fileURLToPath(new URL('./index.html', import.meta.url)),
         agents: fileURLToPath(new URL('./agents/index.html', import.meta.url)),
+        codingAgentMap: fileURLToPath(new URL('./coding-agent-map/index.html', import.meta.url)),
         templates: fileURLToPath(new URL('./templates/index.html', import.meta.url))
       }
     }

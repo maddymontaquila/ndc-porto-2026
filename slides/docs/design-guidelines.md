@@ -68,8 +68,6 @@ Aspire content uses two families, both vendored in `shared/fonts/`:
 - **Poppins** (400, 500, 600, 700) for everything.
 - **Fira Code** (400, 600) for code, CLI commands, file names and the small uppercase eyebrows.
 
-Conference title slides use **DS Wallau** (400) for the title and **Alegreya** (500) for supporting text, matching the supplied PowerPoint template. DS Wallau was extracted from the template; Alegreya uses the full open-licensed 2.009 release because the template's embedded subset omits punctuation used on our covers. Both are local WOFF2 fonts. Do not synthesize bold or apply tight tracking to DS Wallau. License notices are in `public/font-licenses/` and are copied into production builds; DS Wallau has separate conference/web-use permission and is not generally licensed for reuse.
-
 Type scale (px at 1920 × 1080):
 
 | Role | Size | Weight | Notes |
@@ -101,8 +99,8 @@ Use the shared `h1.aspire-definition` with inline `span` highlights for the Aspi
 
 | Template | Use it for |
 | --- | --- |
-| `conference-opener` | First slide: full-bleed Techorama Medieval Edition artwork |
-| `conference-title` | Second slide: official conference pattern and logo, editable session title and presenters |
+| `conference-opener` | First slide: typographic NDC Porto 2026 opener |
+| `conference-title` | Second slide: editable event label, session title and presenters |
 | `title` | Alternative Aspire-branded cover: event details, big title, speakers, hero render |
 | `speakers` | Two open columns, large portraits above aligned names, roles and handles |
 | `section-divider` / `demo` | Dark break slides with rings, eyebrow and a huge title |
@@ -114,7 +112,7 @@ Use the shared `h1.aspire-definition` with inline `span` highlights for the Aspi
 | `code` | Editor panel with filename bar and optional integration legend |
 | `table` | Reference tables such as a CLI cheat sheet |
 | `flow-diagram` | Dev → container → prod rows |
-| `text-plus-screenshot` | Three icon rows beside a dashboard screenshot |
+| `text-plus-diagram` | Three icon rows beside an editable dashboard illustration |
 | `resources` | Two-column label/link grid |
 | `closing` | Thank you and a two-column contact grid beside a large session-specific review QR image |
 
@@ -124,11 +122,11 @@ Keep one-off slide composition inline; reusable component and accessibility rule
 
 Use fades between slides and native Reveal fragments only where the presenter is explaining a sequence or comparison. The first item stays visible; subsequent items appear on click. Give an arrow and its destination the same `data-fragment-index`, and reveal a loop-back connector only after the final step. No autoplay, bouncing or decorative entrances. Reduced-motion preferences remove transition effects, not the presenter's control of content.
 
-Keep speaker portraits and names visible together, with identical column widths and deliberate role line breaks. Dense screenshots should support a native image preview rather than implying their fine print is readable from the back of the room.
+Keep speaker portraits and names visible together, with identical column widths and deliberate role line breaks. Keep dashboard visuals current with the release being presented; clearly label editable mockups as illustrations, never screenshots. Dense screenshots should support a native image preview rather than implying their fine print is readable from the back of the room.
 
-The two opening slides are an intentional conference-brand exception to the Aspire palette and logo rules. The opener, patterned background and transparent logo were extracted from the supplied `Techorama 2026 Template.potx`; preserve those assets and use warm light text beneath the conference logo. Match its title layout, then return to Aspire styling for the speaker and content slides.
+The two opening slides use the Aspire palette and local Poppins and Fira Code fonts. Keep the NDC Porto event mark and session details editable in HTML; do not use artwork or fonts from the previous event.
 
-Closing slides use `.closing-layout`: an 880px text column, a 64px gap and the unmodified session review image at 720 × 720px. Use `agents-review-qr.png` only for the agents session and `aspireify-review-qr.png` only for Aspireify; never crop or decorate the QR artwork.
+Closing slides use `.closing-layout`: an 880px text column, a 64px gap and, when available, the unmodified session review image at 720 × 720px. Never reuse another session's QR artwork or crop/decorate a QR.
 
 ## Voice
 

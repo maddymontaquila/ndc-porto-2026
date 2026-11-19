@@ -1,16 +1,17 @@
 # Slides
 
-Slides for Maddy Montaquila and Tommaso Stocchi's Techorama 2026 sessions, built with [Reveal.js](https://revealjs.com) and Vite.
+Slides for NDC Porto 2026, featuring Aspire teammates. Built with [Reveal.js](https://revealjs.com) and Vite.
 
 | Deck | Folder |
 | --- | --- |
-| Use agents to build agents with Aspire + Microsoft Agent Framework (Wed 28 Oct, Room 12) | `agents/` |
+| Use agents to build agents with Aspire + Microsoft Agent Framework | `agents/` |
+| Aspire is the map your coding agent is missing | `coding-agent-map/` |
 
 Reveal.js is npm-managed; Poppins and Fira Code fonts, images and inline Lucide SVGs are local. The production build bundles everything needed to present without internet access. Resource links still need a connection.
 
-Both decks begin with the official Techorama opener, followed by a conference-branded session title and then the speaker slide. The event artwork comes directly from the supplied `Techorama 2026 Template.potx`; titles and presenter names remain editable HTML. Aspireify keeps its named URLs, including `#/cover`. The agents deck uses one-based numeric URLs (`#/1`, `#/2`, etc.) that automatically follow slide order.
+Both session decks begin with editable NDC Porto 2026 opener and title slides, followed by their speaker slides. Event and presenter details remain editable HTML. Each deck uses one-based numeric URLs (`#/1`, `#/2`, etc.) that automatically follow slide order.
 
-The title slides use DS Wallau extracted from the template and the matching full Alegreya 2.009 release (the embedded subset omits some punctuation), bundled as local webfonts. Font licenses/notices in `public/font-licenses/` are included in `dist/`; DS Wallau's conference and web-use permission is specific to these decks. Each closing slide includes its matching SpreaView session review QR image.
+The slides use local Poppins and Fira Code fonts. The agents deck includes its matching SpreaView session review QR image; the coding-agent-map deck closes with an editable thank-you slide.
 
 ## Presenting
 
@@ -21,13 +22,12 @@ npm ci
 npm run dev
 ```
 
-Open the URL printed by Vite and choose a deck. Editing a source file updates the development preview.
+Open the landing page printed by Vite to choose either deck. Editing a source file updates the development preview.
 
-Alternatively, run `aspire run` after `npm ci` to open the **Aspireify session**
-and **Agent session** links in the Aspire dashboard. Aspire manages a separate
-Vite server and port for each deck using the dependencies and Vite
-configuration. See the root `README.md` for Aspire prerequisites and background
-commands. `npm run aspire:build` checks the AppHost separately from the slide build.
+Alternatively, run `aspire run` after `npm ci` to open the **Agent session** link
+in the Aspire dashboard. See the root `README.md` for Aspire prerequisites and
+background commands. `npm run aspire:build` checks the AppHost separately from
+the slide build.
 
 Before the talk:
 
@@ -41,7 +41,7 @@ Present from the preview URL printed by Vite. `dist/` is also ready to deploy to
 - `S` opens the speaker view (notes, timer, next slide)
 - `F` goes full screen, `Esc` shows the slide overview
 - Arrow keys or Space advance deliberate fragment builds before moving to the next slide; Left reverses them
-- Select the dashboard screenshot in “Aspire for AI dev” to enlarge it; `Esc` returns
+- The dashboard view in “Aspire for AI dev” is an editable Aspire 17 illustration; use the live dashboard for current product details
 - Slides are 1920×1080 and scale to fit the window without cropping; any extra space uses the deck's dark background, not white bars
 - Transitions fade; reduced-motion preferences remove transitions while preserving click-to-reveal steps
 
@@ -53,7 +53,9 @@ In the agents deck, matching “Part 1 · Use AI” and “Part 2 · Build AI”
 
 Demo 1, “Supercharge an app with Aspire + AI,” uses Barista Notes, an existing app built by someone else. The notes call for crediting its creator and demonstrating the Aspire + AI development loop rather than building a new app from scratch.
 
-“AI is how we build and ship Aspire” replaces PR-attribution statistics with the presenters’ firsthand statement that every teammate uses AI every day. It links concrete public examples, checked on 28 Oct 2026: `issue-investigation`, `pr-testing` and `backport-pr` in [microsoft/aspire’s skills](https://github.com/microsoft/aspire/tree/main/.agents/skills), plus `analyze-ci-failure` and `release-notes-generate` in its [agentic workflows](https://github.com/microsoft/aspire/tree/main/.github/workflows). Completed CI-analysis and release-note-generation runs are linked on the slide; notes distinguish assistance from autonomous approval. The dashboard image comes from the official [Aspire 13.6 release notes](https://aspire.dev/whats-new/aspire-13-6/) and shows structured logs and run history.
+Demo 2's Aspireland app repository: [adamint/aspireland](https://github.com/adamint/aspireland).
+
+“AI is how we build and ship Aspire” replaces PR-attribution statistics with the presenters’ firsthand statement that every teammate uses AI every day. It links concrete public examples, checked on 28 Oct 2026: `issue-investigation`, `pr-testing` and `backport-pr` in [microsoft/aspire’s skills](https://github.com/microsoft/aspire/tree/main/.agents/skills), plus `analyze-ci-failure` and `release-notes-generate` in its [agentic workflows](https://github.com/microsoft/aspire/tree/main/.github/workflows). Completed CI-analysis and release-note-generation runs are linked on the slide; notes distinguish assistance from autonomous approval. The dashboard illustration is editable and labeled as such; show the current Aspire 17 dashboard during the live demo.
 
 ## Editing the slides (people and agents)
 
@@ -64,13 +66,12 @@ Demo 1, “Supercharge an app with Aspire + AI,” uses Barista Notes, an existi
 
 ## Layout
 
-- `index.html` – simple landing page linking both decks
+- `index.html` – landing page linking both session decks
 - `apphost.mts` / `aspire.config.json` – Aspire hosting for the two decks
 - `package.json` / `package-lock.json` / `vite.config.js` – shared dependencies and slide build
 - `eslint.config.mjs` / `tsconfig.apphost.json` – AppHost linting and type-checking
 - `shared/deck.js` – shared Reveal.js configuration, npm imports and image previews
-- `shared/fonts/` – Poppins and Fira Code (latin subsets, from Fontsource), plus the conference title fonts
-- `public/font-licenses/` – conference font licenses/notices, copied into production builds
+- `shared/fonts/` – Poppins and Fira Code (latin subsets, from Fontsource)
 - `shared/img/` – Aspire logo and artwork, speaker photos
 - `shared/deck.css` – shared slide styles
 
