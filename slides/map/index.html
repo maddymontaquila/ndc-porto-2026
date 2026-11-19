@@ -247,27 +247,26 @@
 <aside class="notes">The agent can only see what your app reports, so telemetry is part of the setup. OpenTelemetry works in any language: Aspire injects the right settings into every resource, like the OTLP endpoint for the dashboard and the service name, so you just point the OpenTelemetry SDK at them. Fun fact: if you’re on .NET it’s even easier. The service defaults project wires up logs, traces and metrics, plus health checks and resilience, with one call. The practical advice either way: don’t hand-write it. Ask your agent to do it in one shot; with Aspire’s skills it gets it right.</aside>
 </section>
 <section id="otel-trace" data-transition="fade">
-<div class="slide m">
+<div class="slide m" style="gap:40px">
 <img class="logo" src="../shared/img/aspire-logo-light-horizontal.png" alt="Aspire">
-<div style="display:flex; justify-content:space-between; align-items:flex-end">
-<h2 class="title">Where did the 5 seconds go?</h2>
-<div class="pop fragment" data-fragment-index="1" style="display:flex; flex-direction:column; gap:6px">
-<p class="copy" style="font-size:30px"><b style="color:#f08bff">4.16 s</b> in two model calls</p>
-<p class="copy" style="font-size:30px"><b style="color:#3fd4d4">20 ms</b> in the planner and Postgres</p>
-</div>
+<div style="display:flex; flex-direction:column; gap:16px">
+<h2 class="title">Visualize a request e2e</h2>
+<p class="lead"><b class="ink">One rider question, one trace.</b> <span style="color:#c3adff">Four services</span>, plus the <span style="color:#3fd4d4">Postgres and Foundry calls</span> they make.</p>
 </div>
 <div style="position:relative; width:1632px">
 <a href="../shared/img/metro-ops-trace-dark.png" data-preview-image aria-label="Enlarge the Metro Ops trace screenshot" style="display:block">
 <img src="../shared/img/metro-ops-trace-dark.png" alt="Aspire dashboard trace for passenger-api POST /api/assistant: 5.13 seconds across 6 resources and 15 spans, mostly two 1.64 and 2.52 second model calls" style="display:block; width:1632px; height:auto; border-radius:24px; border:1px solid rgba(195,173,255,0.28); box-shadow:0 42px 120px rgba(7,4,24,0.6)">
 </a>
 <div class="pop fragment" data-fragment-index="1" aria-hidden="true" style="position:absolute; inset:0; pointer-events:none">
-<div style="position:absolute; left:0.5%; right:0.5%; top:52.8%; height:5%; border:3px solid #f08bff; border-radius:10px; background:rgba(240,139,255,0.1)"></div>
-<div style="position:absolute; left:0.5%; right:0.5%; top:58.4%; height:33%; border:3px solid #3fd4d4; border-radius:10px; background:rgba(63,212,212,0.08)"></div>
-<div style="position:absolute; left:0.5%; right:0.5%; top:92.1%; height:5%; border:3px solid #f08bff; border-radius:10px; background:rgba(240,139,255,0.1)"></div>
+<div style="position:absolute; left:28.6%; width:7.4%; top:8.1%; height:89.4%; border:3px solid #c3adff; border-radius:10px; background:rgba(195,173,255,0.08)"></div>
+<div style="position:absolute; left:11.15%; width:3.65%; top:41.8%; height:4.8%; border:3px solid #3fd4d4; border-radius:10px; background:rgba(63,212,212,0.1)"></div>
+<div style="position:absolute; left:12.3%; width:3.15%; top:53%; height:4.8%; border:3px solid #3fd4d4; border-radius:10px; background:rgba(63,212,212,0.1)"></div>
+<div style="position:absolute; left:14.9%; width:3.65%; top:86.6%; height:4.8%; border:3px solid #3fd4d4; border-radius:10px; background:rgba(63,212,212,0.1)"></div>
+<div style="position:absolute; left:12.3%; width:3.15%; top:92.2%; height:4.8%; border:3px solid #3fd4d4; border-radius:10px; background:rgba(63,212,212,0.1)"></div>
 </div>
 </div>
 </div>
-<aside class="notes">This is a real trace from Metro Ops, the app we’re demoing. A rider asks the Signal assistant a question and waits about 5 seconds. Ask the room: where did the time go? Most people say the database. Click: it’s two calls to the model, 1.64 and 2.52 seconds. The tool call, the planner and both Postgres queries take about 20 ms combined. That’s one request across passenger-api, ai-operations, planner, scenario, Postgres and Foundry, and nobody wired up an exporter or a collector to get it. Aspire handed every resource its OTLP endpoint and service name. Your agent gets this exact trace too, which is the next slide.</aside>
+<aside class="notes">This is a real trace from Metro Ops, the app we’re demoing. A rider asks the Signal assistant a question, and this is that one request, end to end. Click: passenger-api hands it to ai-operations, which pulls context from scenario, asks the model, calls the planner as a tool, and asks the model again. The arrows are the calls that leave our code: metro is the Postgres database and chat is the Foundry model deployment, both resources in the AppHost. That’s six resources in one trace, and nobody configured an exporter or a collector to get it, because Aspire handed every resource its OTLP endpoint and service name. If you want a quick beat: almost all of the 5 seconds is the two model calls. Your agent gets this exact trace too, which is the next slide.</aside>
 </section>
 <section id="eyes" data-transition="fade">
 <div class="slide m">
