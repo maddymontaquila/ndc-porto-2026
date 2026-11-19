@@ -6,10 +6,11 @@ Slides for NDC Porto 2026, featuring Aspire teammates. Built with [Reveal.js](ht
 | --- | --- |
 | Use agents to build agents with Aspire + Microsoft Agent Framework | `agents/` |
 | Aspire is the map your coding agent is missing | `coding-agent-map/` |
+| Aspire is the map your coding agent is missing | `map/` |
 
 Reveal.js is npm-managed; Poppins and Fira Code fonts, images and inline Lucide SVGs are local. The production build bundles everything needed to present without internet access. Resource links still need a connection.
 
-Both session decks begin with editable NDC Porto 2026 opener and title slides, followed by their speaker slides. Event and presenter details remain editable HTML. Each deck uses one-based numeric URLs (`#/1`, `#/2`, etc.) that automatically follow slide order.
+The agents and coding-agent-map decks begin with editable NDC Porto 2026 opener and title slides, followed by their speaker slides. Event and presenter details remain editable HTML. These decks use one-based numeric URLs (`#/1`, `#/2`, etc.) that automatically follow slide order.
 
 The slides use local Poppins and Fira Code fonts. The agents deck includes its matching SpreaView session review QR image; the coding-agent-map deck closes with an editable thank-you slide.
 
@@ -22,12 +23,10 @@ npm ci
 npm run dev
 ```
 
-Open the landing page printed by Vite to choose either deck. Editing a source file updates the development preview.
+Open the landing page printed by Vite to choose a deck. Editing a source file updates the development preview.
 
-Alternatively, run `aspire run` after `npm ci` to open the **Agent session** link
-in the Aspire dashboard. See the root `README.md` for Aspire prerequisites and
-background commands. `npm run aspire:build` checks the AppHost separately from
-the slide build.
+Alternatively, run `aspire run` after `npm ci` to open the deck links in the Aspire
+dashboard. `npm run aspire:build` checks the AppHost separately from the slide build.
 
 Before the talk:
 
@@ -53,7 +52,7 @@ In the agents deck, matching “Part 1 · Use AI” and “Part 2 · Build AI”
 
 Demo 1, “Supercharge an app with Aspire + AI,” uses Barista Notes, an existing app built by someone else. The notes call for crediting its creator and demonstrating the Aspire + AI development loop rather than building a new app from scratch.
 
-Demo 2's Aspireland app repository: [adamint/aspireland](https://github.com/adamint/aspireland).
+Aspireland app repository: [adamint/aspireland](https://github.com/adamint/aspireland).
 
 “AI is how we build and ship Aspire” replaces PR-attribution statistics with the presenters’ firsthand statement that every teammate uses AI every day. It links concrete public examples, checked on 28 Oct 2026: `issue-investigation`, `pr-testing` and `backport-pr` in [microsoft/aspire’s skills](https://github.com/microsoft/aspire/tree/main/.agents/skills), plus `analyze-ci-failure` and `release-notes-generate` in its [agentic workflows](https://github.com/microsoft/aspire/tree/main/.github/workflows). Completed CI-analysis and release-note-generation runs are linked on the slide; notes distinguish assistance from autonomous approval. The dashboard illustration is editable and labeled as such; show the current Aspire 17 dashboard during the live demo.
 
@@ -66,8 +65,8 @@ Demo 2's Aspireland app repository: [adamint/aspireland](https://github.com/adam
 
 ## Layout
 
-- `index.html` – landing page linking both session decks
-- `apphost.mts` / `aspire.config.json` – Aspire hosting for the two decks
+- `index.html` – landing page linking the session decks
+- `apphost.mts` / `aspire.config.json` – Aspire hosting for the decks
 - `package.json` / `package-lock.json` / `vite.config.js` – shared dependencies and slide build
 - `eslint.config.mjs` / `tsconfig.apphost.json` – AppHost linting and type-checking
 - `shared/deck.js` – shared Reveal.js configuration, npm imports and image previews

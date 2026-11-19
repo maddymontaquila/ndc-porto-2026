@@ -8,16 +8,17 @@ Instructions for any coding agent (Copilot, Claude Code, Codex, Cursor…) editi
 | --- | --- |
 | `agents/index.html` | "Use agents to build agents with Aspire + Microsoft Agent Framework" |
 | `coding-agent-map/index.html` | "Aspire is the map your coding agent is missing" |
+| `map/index.html` | NDC Porto: "Aspire is the map your coding agent is missing", Thu 19 Nov, Room 2. Its styles live in `map/map.css`, scoped to `.slide.m`, and `map/map.js` loads them after the shared setup |
 | `templates/index.html` | A runnable gallery deck: one example of every slide layout, ready to copy |
 | `docs/design-guidelines.md` | Brand and layout rules (colors, type scale, spacing, components, voice) |
 | `docs/brand/tokens.json` | Aspire design system tokens (source of truth for colors and type) |
 | `shared/deck.js` | Shared Reveal.js initialization, npm imports, image previews and motion preferences |
 | `shared/` | Local fonts, images and `deck.css`, shared by every deck |
-| `index.html` | Landing page for both session decks |
+| `index.html` | Landing page for the session decks |
 
 This `slides/` folder owns the npm manifest, lockfile, Vite configuration and Aspire hosting. Run npm and Aspire commands here, not at the repository root. Build tooling and npm dependencies are allowed. Use the existing Vite multi-page build rather than copying library distributions into `shared/` or introducing a second build system. Keep dependency changes intentional and commit the lockfile with them.
 
-The optional TypeScript AppHost (`apphost.mts`) hosts the two decks as separate Vite resources through `npm run slides:start`. Keep Aspire's `PORT` handling in this folder's shared `vite.config.js`; do not add a second Vite config. `npm run build` builds the decks without Aspire; `npm run aspire:build` lints and type-checks the AppHost after `aspire restore`.
+The optional TypeScript AppHost (`apphost.mts`) runs one Vite resource, `slides`, through `npm run slides:start`, with dashboard links to the landing page, `map/`, `coding-agent-map/` and `agents/`. Run `aspire restore` once, then `aspire run` (or `aspire start`) from this folder. Keep Aspire's `PORT` handling in this folder's shared `vite.config.js`; do not add a second Vite config. `npm run build` builds the decks without Aspire; `npm run aspire:build` lints and type-checks the AppHost after `aspire restore`.
 
 The **built decks must present without an internet connection**. Bundle runtime dependencies, fonts and images; do not depend on a CDN at presentation time. External resource links are fine. `npm run build` creates `dist/`, which can be served locally or deployed to a static host, including a repository subpath. Do not edit or commit generated `dist/` files.
 
